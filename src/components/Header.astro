@@ -1,0 +1,29 @@
+---
+interface Props {
+  id?: string;
+  variant: 1 | 2;
+  class?: string;
+}
+
+const { id: idName, variant, class: className } = Astro.props;
+const id = idName ?? '';
+---
+
+{variant === 1 && (
+    <h1 id={id ?? ''} class={`header header-1 ${className}`}><slot/></h1>
+)}
+{variant === 2 && (
+    <h2 id={id ?? ''} class={`header header-2 ${className}`}><slot/></h1>
+)}
+
+<style>
+    .header {
+        color: var(--text-color);
+    }
+    .header-1 {
+        font-size: var(--h1-font-size);
+    }
+    .header-2 {
+        font-size: var(--h2-font-size);
+    }
+</style>

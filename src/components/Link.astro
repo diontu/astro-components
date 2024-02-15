@@ -1,0 +1,35 @@
+---
+interface Props {
+    id?: string;
+    href: string;
+    class?: string;
+}
+
+const { id: idName, href, class: className } = Astro.props;
+const id = idName ?? '';
+---
+
+<a id={id} href={href} class={`link ${className}`}>
+    <slot />
+</a>
+
+<style>
+    .link {
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: all 0.2s ease-in-out;
+    }
+    .link:link {
+        text-decoration: none;
+    }
+    .link:hover {
+        text-decoration: none;
+        color: var(--secondary-color);
+    }
+    .link:visited {
+        text-decoration: none;
+    }
+    .link:active {
+        text-decoration: none;
+    }
+</style>

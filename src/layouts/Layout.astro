@@ -20,8 +20,29 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
 <style is:global>
   :root {
+    /* text */
+    --text-color: #333b5f; /* a little different than --secondary color */
+    --text-color-inverted: white;
+    --text-sm: 16px;
+    --text-base: 18px;
+    /* header size */
+    --h1-font-size: 38px;
+    --h2-font-size: 18px;
+    --footer-font-size: 15px;
+    /* colors */
+    --primary-color: #0377E4; /* light color */
+    --secondary-color: #011e3a; /* close to black color */
+    --bg-color: #f7f7f7; /* should not be completely white */
+    /* widths */
+    --max-content-width: 1280px;
+    /* border */
+    --rounded-radius: 15px;
+    --card-radius: 8px;
+
+    /* others */
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
     --accent-dark: 49, 10, 101;
@@ -33,19 +54,11 @@ const { title } = Astro.props;
     );
   }
   html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+    font-family: Helvetica Neue, system-ui, sans-serif;
+    background: var(--bg-color);
+    font-size: var(--text-base);
+    color: var(--text-color);
+    /* good letter spacing for Helvetica Neue */
+    letter-spacing: 0.2px;
   }
 </style>
