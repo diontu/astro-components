@@ -2,19 +2,29 @@
 interface Props {
     id?: string;
     href: string;
+    size: 'sm' | 'base';
     class?: string;
 }
 
-const { id: idName, href, class: className } = Astro.props;
+const { id: idName, href, class: className, size } = Astro.props;
 const id = idName ?? '';
 ---
 
-<a id={id} href={href} class={`link ${className}`}>
+<a id={id} href={href} class={`link ${className} ${size}`}>
     <slot />
 </a>
 
 <style>
+    .sm {
+        font-size: var(--text-sm);
+        line-height: 22px;
+    }
+    .base {
+        font-size: var(--text-base);
+        line-height: 24px;
+    }
     .link {
+        padding: 4px 0;
         text-decoration: none;
         color: var(--primary-color);
         transition: all 0.2s ease-in-out;

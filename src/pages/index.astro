@@ -6,13 +6,14 @@ import Header from "../components/Header.astro";
 import Link from "../components/Link.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Astro." description="description">
   <main>
     <Button variant="primary" href="/">
       hello
     </Button>
+    <Link href="/" size="sm">hello</Link>
     <Header variant={1}>hello</Header>
-    <Link href="/">hello</Link>
+    <Link href="/" size="sm">hello</Link>
     <Card>
       <div>hello</div>
       <div>hello</div>
