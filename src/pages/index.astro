@@ -2,17 +2,34 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Button from "../components/Button.astro";
-import Header from "../components/Header.astro";
+import Title from "../components/Title.astro";
 import Link from "../components/Link.astro";
+import Header from "../components/react/Header";
+
+const nav = [
+  {
+    title: 'About',
+    href: '/'
+  },
+  {
+    title: 'Services',
+    href: '/'
+  },
+  {
+    title: 'Pricing',
+    href: '/'
+  }
+];
 ---
 
 <Layout title="Welcome to Astro." description="description">
+  <Header nav={nav} client:load/>
   <main>
     <Button variant="primary" href="/">
       hello
     </Button>
     <Link href="/" size="sm">hello</Link>
-    <Header variant={1}>hello</Header>
+    <Title variant={1}>hello</Title>
     <Link href="/" size="sm">hello</Link>
     <Card>
       <div>hello</div>
@@ -30,7 +47,7 @@ import Link from "../components/Link.astro";
   main {
     margin: auto;
     padding: 1rem;
-    width: 800px;
+    width: 1024px;
     max-width: calc(100% - 2rem);
     line-height: 1.6;
   }

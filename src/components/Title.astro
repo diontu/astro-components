@@ -1,7 +1,7 @@
 ---
 interface Props {
   id?: string;
-  variant: 1 | 2;
+  variant: 'landing-page' | 1 | 2;
   class?: string;
 }
 
@@ -9,6 +9,9 @@ const { id: idName, variant, class: className } = Astro.props;
 const id = idName ?? '';
 ---
 
+{variant === 'landing-page' && (
+    <h1 id={id ?? ''} class={`header landing-page ${className}`}><slot/></h1>
+)}
 {variant === 1 && (
     <h1 id={id ?? ''} class={`header header-1 ${className}`}><slot/></h1>
 )}
@@ -19,6 +22,9 @@ const id = idName ?? '';
 <style>
     .header {
         color: var(--text-color);
+    }
+    .landing-page { 
+        font-size: var(--landing-page-font-size);
     }
     .header-1 {
         font-size: var(--h1-font-size);

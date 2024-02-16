@@ -31,20 +31,29 @@ const { title, description } = Astro.props;
     --text-sm: 16px;
     --text-base: 18px;
     /* header size */
+    --landing-page-font-size: 64px;
     --h1-font-size: 38px;
     --h2-font-size: 18px;
     --footer-font-size: 15px;
     /* colors */
     --primary-color: #0377E4; /* light color */
     --secondary-color: #011e3a; /* close to black color */
-    --bg-color: #f7f7f7; /* should not be completely white */
-    /* widths */
-    --max-header-width: 1320px;
-    --max-content-width: 1280px;
-    --max-footer-width: 1320px;
+    --bg-color: #f7f7f7; /* should not be completely white or completely black */
+    /* widths, usually accompanied with margin: 0 auto; */
+    --max-header-width: 1064px;
+    --max-content-width: 1024px;
+    --max-footer-width: 1064px;
     /* border */
     --rounded-radius: 15px;
     --card-radius: 8px;
+    /* responsive design widths (based on tailwind) */
+    --sm: 640px;
+    --md: 768px;
+    --lg: 1024px;
+    --xl: 1280px;
+    --2xl: 1536px;
+    /* mobile content margins */
+    --mobile-content-margins: 12px;
 
     /* others */
     --accent: 136, 58, 234;
@@ -64,5 +73,11 @@ const { title, description } = Astro.props;
     color: var(--text-color);
     /* good letter spacing for Helvetica Neue */
     letter-spacing: 0.2px;
+  }
+  body {
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
   }
 </style>

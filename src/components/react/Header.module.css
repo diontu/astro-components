@@ -1,0 +1,114 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+@media screen and (min-width: 640px) {
+  .header {
+    background-color: none;
+  }
+}
+.mobileNavOpened {
+  -webkit-box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
+}
+
+.navigationWrapper {
+  z-index: 100;
+  padding: var(--mobile-content-margins) 16px;
+  border-bottom: solid 1px #d3d3d3;
+  max-width: var(--max-header-width);
+  margin: 0 auto;
+}
+@media screen and (min-width: 640px) {
+  .navigationWrapper {
+    padding: 0 32px;
+  }
+}
+.navFullWidth {
+  max-width: 100%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desktopMenu {
+  display: none;
+  list-style: none;
+}
+@media screen and (min-width: 640px) {
+  .desktopMenu {
+    display: flex;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: var(--text-sm);
+  padding: 8px 16px;
+  margin-left: 8px;
+  font-weight: 500;
+  border-radius: var(--rounded-radius);
+  border-style: none;
+  transition: all 0.2s ease-in-out;
+}
+.navLink:hover {
+  opacity: 0.6;
+}
+
+.image {
+  display: block;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border: 1px solid var(--bg-color);
+  padding: 4px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 640px) {
+  .image {
+    display: none;
+  }
+}
+.openedMenu {
+  border-color: var(--primary-color);
+}
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: var(--bg-color);
+}
+@media screen and (min-width: 640px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileLinkWrapper {
+  font-weight: 500;
+  border-top: solid 1px #d3d3d3;
+}
+
+.mobileLinks {
+  height: 100%;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.mobileLinks:hover {
+  color: var(--primary-color);
+}
+
+.mobileLinkBlock {
+  padding: 30px 12px;
+}
