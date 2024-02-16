@@ -1,6 +1,6 @@
 ---
 interface Props {
-    /** background color hex code string */
+    /** background color must be a valid CSS string. e.g. var(--variable) */
     color?: string;
     /** whether this wrapper is at the top of the page */
     isTop?: boolean;
@@ -10,17 +10,22 @@ const { color, isTop = false } = Astro.props
 ---
 
 <div class={`simple ${isTop ? 'top' : ''}`} style={{ backgroundColor: color }}>
-    <slot />
+    <div class="content">
+        <slot />
+    </div>
 </div>
 
+<!-- wrap in another component? -->
 <style>
     .simple {
-        margin: 0 auto;
-        padding: 0 1rem;
-        width: var(--max-content-width);
         background-color: var(--bg-color);
     }
+    .content {
+        width: 100%;
+        margin: 0 auto;
+        width: var(--max-content-width);
+    }
     .top {
-        margin-top: 70px;
+        padding-top: 70px;
     }
 </style>
