@@ -9,6 +9,7 @@ type NavigationType = {
 };
 
 interface Props {
+  isTransparent?: boolean;
   isFullWidth?: boolean;
   nav: NavigationType[];
 }
@@ -20,7 +21,7 @@ const Navigation = (props: Props): JSX.Element => {
   };
   return (
     <header
-      className={`${styles.header} ${$isMenuOpen ? styles.mobileNavOpened : ""}`}
+      className={`${styles.header} ${$isMenuOpen ? styles.mobileNavOpened : ""} ${props.isTransparent ? styles.transparentHeader : ""}`}
     >
       <nav
         className={`${styles.navigationWrapper} ${props.isFullWidth ? styles.navFullWidth : ""}`}

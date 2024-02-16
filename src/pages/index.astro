@@ -23,7 +23,7 @@ const nav = [
 ---
 
 <Layout title="Welcome to Astro." description="description">
-  <Header nav={nav} client:load/>
+  <Header nav={nav} isTransparent client:load/>
   <main>
     <Button variant="primary" href="/">
       hello
@@ -50,6 +50,7 @@ const nav = [
     width: 1024px;
     max-width: calc(100% - 2rem);
     line-height: 1.6;
+    margin-top: 200px;
   }
   h1 {
     font-size: 4rem;
