@@ -1,0 +1,26 @@
+---
+interface Props {
+    /** background color hex code string */
+    color?: string;
+    /** whether this wrapper is at the top of the page */
+    isTop?: boolean;
+}
+
+const { color, isTop = false } = Astro.props
+---
+
+<div class={`simple ${isTop ? 'top' : ''}`} style={{ backgroundColor: color }}>
+    <slot />
+</div>
+
+<style>
+    .simple {
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: var(--max-content-width);
+        background-color: var(--bg-color);
+    }
+    .top {
+        margin-top: 70px;
+    }
+</style>

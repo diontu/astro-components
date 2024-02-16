@@ -26,6 +26,7 @@ const { title, description } = Astro.props;
 <style is:global>
   :root {
     /* text */
+    --text-line-height: 1.6;
     --text-color: #333b5f; /* a little different than --secondary color */
     --text-color-inverted: white;
     --text-sm: 16px;
@@ -73,6 +74,7 @@ const { title, description } = Astro.props;
     color: var(--text-color);
     /* good letter spacing for Helvetica Neue */
     letter-spacing: 0.2px;
+    line-height: var(--text-line-height);
   }
   body {
     margin: 0;

@@ -5,6 +5,7 @@ import Button from "../components/Button.astro";
 import Title from "../components/Title.astro";
 import Link from "../components/Link.astro";
 import Header from "../components/react/Header";
+import SimpleWrapper from "../section-wrappers/SimpleWrapper.astro";
 
 const nav = [
   {
@@ -25,6 +26,7 @@ const nav = [
 <Layout title="Welcome to Astro." description="description">
   <Header nav={nav} isTransparent client:load/>
   <main>
+    <SimpleWrapper isTop>hello world</SimpleWrapper>
     <Button variant="primary" href="/">
       hello
     </Button>
@@ -44,14 +46,6 @@ const nav = [
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 1024px;
-    max-width: calc(100% - 2rem);
-    line-height: 1.6;
-    margin-top: 200px;
-  }
   h1 {
     font-size: 4rem;
     font-weight: 700;
