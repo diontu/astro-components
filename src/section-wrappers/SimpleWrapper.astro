@@ -4,12 +4,14 @@ interface Props {
     color?: string;
     /** whether this wrapper is at the top of the page */
     isTop?: boolean;
+    /** additional classes */
+    class?: string;
 }
 
-const { color, isTop = false } = Astro.props
+const { color, isTop = false, class: className } = Astro.props
 ---
 
-<div class={`simple ${isTop ? 'top' : ''}`} style={{ backgroundColor: color }}>
+<div class={`simple ${isTop ? 'top' : ''} ${className}`} style={{ backgroundColor: color }}>
     <div class="content">
         <slot />
     </div>
@@ -22,10 +24,11 @@ const { color, isTop = false } = Astro.props
     }
     .content {
         width: 100%;
+        padding: 0 1rem;
         margin: 0 auto;
         width: var(--max-content-width);
     }
     .top {
-        padding-top: 70px;
+        padding-top: 90px;
     }
 </style>

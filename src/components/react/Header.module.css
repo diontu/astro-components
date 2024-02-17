@@ -16,7 +16,7 @@
 
 .navigationWrapper {
   z-index: 100;
-  padding: var(--mobile-content-margins) 16px;
+  padding: 24px 16px;
   border-bottom: solid 1px #d3d3d3;
   max-width: var(--max-header-width);
   margin: 0 auto;
@@ -63,8 +63,8 @@
 
 .image {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   border: 1px solid var(--bg-color);
   padding: 4px;
