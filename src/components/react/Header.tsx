@@ -14,7 +14,7 @@ interface Props {
   nav: NavigationType[];
 }
 
-const Navigation = (props: Props): JSX.Element => {
+const Header = (props: Props): JSX.Element => {
   const $isMenuOpen = useStore(isMenuOpen);
   const menuHandler = (): void => {
     isMenuOpen.set(!$isMenuOpen);
@@ -54,7 +54,7 @@ const Navigation = (props: Props): JSX.Element => {
         {$isMenuOpen && (
           <ul id="mobile-menu" className={styles.mobileMenu}>
             {props.nav.map((menu) => (
-              <li className={styles.mobileLinkWrapper}>
+              <li key={menu.title} className={styles.mobileLinkWrapper}>
                 <a className={styles.mobileLinks} href={menu.href}>
                   <div className={styles.mobileLinkBlock}>{menu.title}</div>
                 </a>
@@ -67,4 +67,4 @@ const Navigation = (props: Props): JSX.Element => {
   );
 };
 
-export default Navigation;
+export default Header;

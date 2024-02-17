@@ -21,12 +21,12 @@ const { color, isTop = false, class: className } = Astro.props
 <style>
     .simple {
         background-color: var(--bg-color);
+        padding: 60px 0;
     }
     .content {
-        width: 100%;
         padding: 0 1rem;
         margin: 0 auto;
-        width: var(--max-content-width);
+        max-width: var(--max-content-width);
     }
     .top {
         padding-top: 90px;

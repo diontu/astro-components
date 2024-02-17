@@ -1,0 +1,49 @@
+---
+import Title from '../components/Title.astro';
+
+interface Props {
+    feature?: string;
+    title: string;
+    description: string;
+    /** 'right' align has no effect on mobile */
+    align?: 'left' | 'center' | 'right';
+    isFullWidth?: boolean;
+}
+
+const { feature, title, description, align = 'left', isFullWidth = false } = Astro.props;
+---
+
+<section class={`feature-section ${align} ${isFullWidth ? 'fullWidth' : ''}`}>
+    {feature && <Title variant={2}>{feature}</Title>}
+    <Title variant={1} noPadding>{title}</Title>
+    <div class="feature-description">{description}</div>
+    <slot />
+</section>
+
+<style>
+    .feature-section {
+        margin: 32px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        text-align: center;
+    }
+    .right {
+        margin-left: auto;
+    }
+    .fullWidth {
+        max-width: 100%;
+    }
+    .feature-description {
+        margin: 20px 0;
+    }
+    @media screen and (min-width: 640px) {
+        .feature-section:not(.fullWidth) {
+            max-width: 50%;
+        }
+    }
+</style>

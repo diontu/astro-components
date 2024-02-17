@@ -3,25 +3,29 @@ interface Props {
   id?: string;
   variant: 'landing-page' | 1 | 2;
   class?: string;
+  noPadding?: boolean;
 }
 
-const { id: idName, variant, class: className } = Astro.props;
+const { id: idName, variant, class: className, noPadding = false } = Astro.props;
 const id = idName ?? '';
 ---
 
 {variant === 'landing-page' && (
-    <h1 id={id ?? ''} class={`header landing-page ${className}`}><slot/></h1>
+    <h1 id={id ?? ''} class={`header landing-page ${className} ${noPadding ? 'noPadding' : ''}`}><slot/></h1>
 )}
 {variant === 1 && (
-    <h1 id={id ?? ''} class={`header header-1 ${className}`}><slot/></h1>
+    <h1 id={id ?? ''} class={`header header-1 ${className} ${noPadding ? 'noPadding' : ''}`}><slot/></h1>
 )}
 {variant === 2 && (
-    <h2 id={id ?? ''} class={`header header-2 ${className}`}><slot/></h1>
+    <h2 id={id ?? ''} class={`header header-2 ${className} ${noPadding ? 'noPadding' : ''}`}><slot/></h1>
 )}
 
 <style>
     .header {
         color: var(--text-color);
+    }
+    .noPadding {
+        margin: 0;
     }
     .landing-page { 
         font-size: var(--landing-page-font-size);
@@ -31,5 +35,6 @@ const id = idName ?? '';
     }
     .header-2 {
         font-size: var(--h2-font-size);
+        color: var(--primary-color);
     }
 </style>

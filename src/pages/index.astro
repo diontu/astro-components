@@ -6,6 +6,7 @@ import Title from "../components/Title.astro";
 import Link from "../components/Link.astro";
 import Header from "../components/react/Header";
 import SimpleWrapper from "../section-wrappers/SimpleWrapper.astro";
+import Feature from "../sections/Feature.astro";
 
 const nav = [
   {
@@ -26,11 +27,32 @@ const nav = [
 <Layout title="Welcome to Astro." description="description">
   <Header nav={nav} isTransparent client:load/>
   <main>
-    <SimpleWrapper color="var(--bg-color-accent-light)" isTop><div>hello world world!!</div></SimpleWrapper>
-    <Button variant="primary" href="/">
-      hello
-    </Button>
-    <Link href="/" size="sm">hello</Link>
+    <SimpleWrapper color="var(--bg-color-accent-light)" isTop>
+      <Feature align="left" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+        <div class="button-group">
+          <Button variant="primary" href="/">
+            hello
+          </Button>
+          <Link href="/" size="sm">hello</Link>
+        </div>
+      </Feature>
+      <Feature align="center" isFullWidth title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+        <div class="button-group">
+          <Button variant="primary" href="/">
+            hello
+          </Button>
+          <Link href="/" size="sm">hello</Link>
+        </div>
+      </Feature>
+      <Feature align="right" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+        <div class="button-group">
+          <Button variant="primary" href="/">
+            hello
+          </Button>
+          <Link href="/" size="sm">hello</Link>
+        </div>
+    </Feature>
+    </SimpleWrapper>
     <Title variant={1}>hello</Title>
     <Link href="/" size="sm">hello</Link>
     <Card>
@@ -46,18 +68,15 @@ const nav = [
 </Layout>
 
 <style>
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
+  }
+  .button-group {
+    display: flex;
+    gap: 18px;
   }
 </style>
