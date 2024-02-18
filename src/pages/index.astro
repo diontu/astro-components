@@ -27,7 +27,7 @@ const nav = [
 <Layout title="Welcome to Astro." description="description">
   <Header nav={nav} isTransparent client:load/>
   <main>
-    <SimpleWrapper color="var(--bg-color-accent-light)" isTop>
+    <SimpleWrapper color="var(--bg-color-accent-light)" isTop class="background">
       <Feature align="left" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
         <div class="button-group">
           <Button variant="primary" href="/">
@@ -68,6 +68,9 @@ const nav = [
 </Layout>
 
 <style>
+  .background {
+    background: contain no-repeat url("/burger-menu.svg");
+  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;

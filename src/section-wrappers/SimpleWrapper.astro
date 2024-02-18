@@ -11,7 +11,7 @@ interface Props {
 const { color, isTop = false, class: className } = Astro.props
 ---
 
-<div class={`simple ${isTop ? 'top' : ''} ${className}`} style={{ backgroundColor: color }}>
+<div class={`simple ${isTop ? 'top' : ''} ${className}`} style={{ background: color }}>
     <div class="content">
         <slot />
     </div>
@@ -20,6 +20,8 @@ const { color, isTop = false, class: className } = Astro.props
 <!-- wrap in another component? -->
 <style>
     .simple {
+        position: relative;
+        overflow: hidden;
         background-color: var(--bg-color);
         padding: 60px 0;
     }
