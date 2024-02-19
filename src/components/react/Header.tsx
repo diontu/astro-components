@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { isMenuOpen } from "./menuStore";
 import styles from "./Header.module.css";
 
-type NavigationType = {
+export type NavigationType = {
   title: string;
   href: string;
   submenu?: NavigationType;

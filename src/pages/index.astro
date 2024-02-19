@@ -5,15 +5,11 @@ import Card from "../components/Card.astro";
 import Button from "../components/Button.astro";
 import Title from "../components/Title.astro";
 import Link from "../components/Link.astro";
-import Header from "../components/react/Header";
 import SimpleWrapper from "../section-wrappers/SimpleWrapper.astro";
 import Feature from "../sections/Feature.astro";
-// constants
-import { nav } from "../constants.ts"
 ---
 
 <Layout title="Welcome to Astro." description="description">
-  <Header nav={nav} isTransparent client:load/>
   <main>
     <SimpleWrapper color="var(--bg-color-accent-light)" isTop class="background">
       <Feature align="left" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">

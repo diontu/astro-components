@@ -1,4 +1,11 @@
 ---
+// components
+import Footer from '../components/Footer.astro';
+import Header from '../components/react/Header';
+
+// constants
+import { headerNav, footerNav, legalNav } from '../constants';
+
 interface Props {
   title: string;
   description: string;
@@ -23,9 +30,18 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Header nav={headerNav} isTransparent client:load/>
     <slot />
+    <Footer businessName="Business Name" numOfColumns={4} nav={footerNav} legalNav={legalNav}/>
   </body>
 </html>
+
+<script>
+  // stop memory leak
+  window.addEventListener('unload', function () {
+      document.documentElement.innerHTML = ''
+  })
+</script>
 
 <style is:global>
   :root {
@@ -44,7 +60,8 @@ const { title, description } = Astro.props;
     --primary-color: #0377E4; /* light color */
     --secondary-color: #011e3a; /* close to black color */
     --bg-color: #f7f7f7; /* should not be completely white or completely black */
-    --footer-color: #011529; /* darker than secondary color */
+    --footer-bg-color: #011529; /* darker than secondary color */
+    --legal-font-color: #b7b7b7; /* darker than bg-color */
     /* widths, usually accompanied with margin: 0 auto; */
     --max-header-width: 1064px;
     --max-content-width: 1024px;

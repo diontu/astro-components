@@ -1,17 +1,157 @@
 ---
 import SimpleWrapper from '../section-wrappers/SimpleWrapper.astro';
 
+interface Props {
+    // make required after footer component is ready
+    nav?: FooterNav
+    legalNav?: Link[]; 
+    businessName: string;
+    numOfColumns: 2 | 4;
+}
 
+export type FooterNav = {
+    title: string;
+    links: Link[]
+}[]
+
+export type Link = {
+    label: string;
+    href: string;
+}
+
+const footerNav: FooterNav = [
+    {
+        title: 'Services',
+        links: [
+            {
+                label: 'Tax',
+                href: '/',
+            },
+            {
+                label: 'Other tax',
+                href: '/',
+            }
+        ]
+    },
+    {
+        title: 'Services',
+        links: [
+            {
+                label: 'Tax',
+                href: '/',
+            },
+            {
+                label: 'Other tax',
+                href: '/',
+            }
+        ]
+    },
+    {
+        title: 'Services',
+        links: [
+            {
+                label: 'Tax',
+                href: '/',
+            },
+            {
+                label: 'Other tax',
+                href: '/',
+            }
+        ]
+    }
+];
+const legalNav: Link[] = [
+    {
+        label: 'Terms & Conditions',
+        href: '/',
+    },
+    {
+        label: 'Privacy Policy',
+        href: '/',
+    }
+];
+
+const { businessName, numOfColumns } = Astro.props;
+
+const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
 ---
 
-<SimpleWrapper color="var(--foot-color)">
-    <div>
-
+<SimpleWrapper color="var(--footer-bg-color)">
+    <div class={`footer ${colClass}`}>
+        <div class="footer-column">
+            <div class="footer-category">{businessName}</div>    
+        </div>
+        {footerNav.map(nav => (
+            <div class="footer-column">
+                <div class="footer-category">{nav.title}</div>
+                {nav.links.map(link => (
+                    <a class="footer-link" href={link.href}>
+                        {link.label}
+                    </a>
+                ))}
+            </div>
+        ))}
+    </div>
+    <hr class="horizontalLine"/>
+    <div class="legal">
+        <div>© Copyright {businessName} 2024</div>
+        <div class="legal-links">
+            {legalNav.map(link => (
+                <a class="legal-link" href={link.href}>{link.label}</a>
+            ))}
+        </div>
     </div>
 </SimpleWrapper>
 
 <style>
     .footer {
-
+        display: grid;
+        font-size: var(--text-base);
+        color: var(--bg-color);
+        gap: 24px 8px;
+    }   
+    .two-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .four-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 640px) {
+        .four-cols {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    }
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-category {
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+    .footer-link {
+        text-decoration: none;
+        font-size: var(--footer-font-size);
+        color: var(--bg-color);
+        margin-bottom: 8px;
+    }
+    .horizontalLine {
+        color: var(--bg-color);
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    .legal {
+        display: flex;
+        justify-content: space-between;
+        font-size: var(--footer-font-size);
+        color: var(--legal-font-color);
+    }
+    .legal-links {
+        display: flex;
+        gap: 20px;
+    }
+    .legal-link {
+        color: var(--legal-font-color);
+        text-decoration: none;
     }
 </style>
