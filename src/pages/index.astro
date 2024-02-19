@@ -7,11 +7,13 @@ import Title from "../components/Title.astro";
 import Link from "../components/Link.astro";
 import SimpleWrapper from "../section-wrappers/SimpleWrapper.astro";
 import Feature from "../sections/Feature.astro";
+// pre-built sections
+import ServicesSection from '../sections/pre-built/ServicesSection.astro';
 ---
 
 <Layout title="Welcome to Astro." description="description">
   <main>
-    <SimpleWrapper color="var(--bg-color-accent-light)" isTop class="background">
+    <SimpleWrapper color="var(--bg-color-accent-light)" isTop>
       <Feature align="left" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
         <div class="button-group">
           <Button variant="primary" href="/">
@@ -20,6 +22,9 @@ import Feature from "../sections/Feature.astro";
           <Link href="/" size="sm">hello</Link>
         </div>
       </Feature>
+      <ServicesSection />
+    </SimpleWrapper>
+    <SimpleWrapper>
       <Feature align="center" isFullWidth title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
         <div class="button-group">
           <Button variant="primary" href="/">
@@ -35,7 +40,7 @@ import Feature from "../sections/Feature.astro";
           </Button>
           <Link href="/" size="sm">hello</Link>
         </div>
-    </Feature>
+      </Feature>
     </SimpleWrapper>
     <Title variant={1}>hello</Title>
     <Link href="/" size="sm">hello</Link>
@@ -52,9 +57,6 @@ import Feature from "../sections/Feature.astro";
 </Layout>
 
 <style>
-  .background {
-    background: contain no-repeat url("/burger-menu.svg");
-  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;

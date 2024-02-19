@@ -1,4 +1,6 @@
 ---
+import classnames from 'classnames';
+
 interface Props {
     /** background color must be a valid CSS string. e.g. var(--variable) */
     color?: string;
@@ -8,10 +10,17 @@ interface Props {
     class?: string;
 }
 
-const { color, isTop = false, class: className } = Astro.props
+const { color, isTop = false, class: className } = Astro.props;
+const externalClasses = className ?? ''
+
+const simpleWrapperClasses = classnames({
+    simple: 'true',
+    top: isTop,
+    [externalClasses]: externalClasses,
+});
 ---
 
-<div class={`simple ${isTop ? 'top' : ''} ${className}`} style={{ background: color }}>
+<div class={simpleWrapperClasses} style={{ background: color }}>
     <div class="content">
         <slot />
     </div>
@@ -25,7 +34,7 @@ const { color, isTop = false, class: className } = Astro.props
         padding: 60px 0;
     }
     .content {
-        padding: 0 1rem;
+        padding: 0 2rem;
         margin: 0 auto;
         max-width: var(--max-content-width);
     }

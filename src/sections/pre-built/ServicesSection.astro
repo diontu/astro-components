@@ -1,0 +1,73 @@
+---
+import { servicesVersion } from 'typescript';
+import Card from '../../components/Card.astro';
+
+const services = [
+    {
+        icon: '/burger-menu.svg',
+        title: 'title',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    },
+    {
+        icon: '/burger-menu.svg',
+        title: 'Tax Auditing',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    },
+    {
+        icon: '/burger-menu.svg',
+        title: 'Tax Preparation',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    }
+];
+---
+
+<div class="services-section">
+    {services.map(service => (
+        <Card isFullWidth isPadded>
+            <div class="service-card">
+                <div>
+                    <img
+                        class="image"
+                        src={service.icon}
+                    />
+                    <div class="title">{service.title}</div>
+                </div>
+                <div class="description">{service.description}</div>
+            </div>
+        </Card>
+    ))}
+</div>
+
+<style>
+    .services-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin: var(--section-y-margin) 0;
+    }
+    @media only screen and (min-width: 640px) {
+        .services-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+    }
+    .service-card {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .image {
+        width: 48px;
+        height: 48px;
+    }
+    .title {
+        font-size: var(--text-base);
+        font-weight: 500;
+    }
+    .description {
+        font-size: var(--text-sm);
+    }
+</style>

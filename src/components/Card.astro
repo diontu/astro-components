@@ -1,15 +1,43 @@
 ---
-// no frontmatter needed here
+import classnames from 'classnames';
+
+interface Props {
+  isFullWidth?: boolean;
+  isPadded?: boolean;
+  isTransparent?: boolean;
+}
+
+const { 
+  isFullWidth = false, 
+  isPadded = false,
+  isTransparent = false,
+} = Astro.props;
+
+const cardClasses = classnames({
+  card: true,
+  'full-width': isFullWidth,
+  'padded': isPadded,
+  'transparent': isTransparent,
+});
 ---
 
-<div class="card">
+<div class={cardClasses}>
   <slot />
 </div>
 <style>
   .card {
+    background-color: var(--bg-color);
     border-radius: var(--card-radius);
     -webkit-box-shadow: 2px 7px 26px 3px rgba(0,0,0,0.18); 
     box-shadow: 2px 7px 26px 3px rgba(0,0,0,0.18);
-    padding: 2px;
+  }
+  .full-width {
+    width: 100%;
+  }
+  .padded {
+    padding: 24px 16px;
+  }
+  .transparent {
+    background-color: transparent;
   }
 </style>
