@@ -1,6 +1,10 @@
 import type { NavigationType } from "./components/react/Header";
 import type { FooterNav, Link } from "./components/Footer.astro";
 
+// business
+export const businessName = "Business Name";
+
+// header
 export const headerNav: NavigationType[] = [
   {
     title: "About",
@@ -16,6 +20,7 @@ export const headerNav: NavigationType[] = [
   },
 ];
 
+// footer
 export const footerNav: FooterNav = [
   {
     title: "Services",
