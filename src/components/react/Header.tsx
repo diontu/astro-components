@@ -33,7 +33,7 @@ const Header = (props: Props): JSX.Element => {
           {/* desktop menu */}
           <ul className={styles.desktopMenu}>
             {props.nav.map((menu) => (
-              <li>
+              <li key={menu.title}>
                 <a className={styles.navLink} href={menu.href}>
                   {menu.title}
                 </a>

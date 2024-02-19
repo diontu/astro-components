@@ -1,5 +1,5 @@
 ---
-import SimpleWrapper from '@section-wrappers/SimpleWrapper.astro';
+import SectionWrappers from '@section-wrappers';
 
 interface Props {
     // make required after footer component is ready
@@ -76,7 +76,7 @@ const { businessName, numOfColumns } = Astro.props;
 const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
 ---
 
-<SimpleWrapper color="var(--footer-bg-color)">
+<SectionWrappers.Simple color="var(--footer-bg-color)">
     <div class={`footer ${colClass}`}>
         <div class="footer-column">
             <div class="footer-category">{businessName}</div>    
@@ -101,7 +101,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
             ))}
         </div>
     </div>
-</SimpleWrapper>
+</SectionWrappers.Simple>
 
 <style>
     .footer {
