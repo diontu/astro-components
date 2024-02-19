@@ -1,5 +1,5 @@
-import type { NavigationType } from "./components/react/Header";
-import type { FooterNav, Link } from "./components/Footer.astro";
+import type { NavigationType } from "@components/Header";
+import type { FooterNav, Link } from "@components/Footer.astro";
 
 // business
 export const businessName = "Business Name";

@@ -1,5 +1,9 @@
 ---
-import Title from '../components/Title.astro';
+// libraries
+import classnames from 'classnames';
+
+// components
+import Title from '@components/Title.astro';
 
 interface Props {
     feature?: string;
@@ -11,9 +15,15 @@ interface Props {
 }
 
 const { feature, title, description, align = 'left', isFullWidth = false } = Astro.props;
+
+const sectionClasses = classnames({
+    'feature-section': true,
+    [align]: true,
+    ['full-width']: isFullWidth,
+});
 ---
 
-<section class={`feature-section ${align} ${isFullWidth ? 'fullWidth' : ''}`}>
+<section class={sectionClasses}>
     {feature && <Title variant={2}>{feature}</Title>}
     <Title variant={1} noPadding>{title}</Title>
     <div class="feature-description">{description}</div>
@@ -35,7 +45,7 @@ const { feature, title, description, align = 'left', isFullWidth = false } = Ast
     .right {
         margin-left: auto;
     }
-    .fullWidth {
+    .full-width {
         max-width: 100%;
     }
     .feature-description {
