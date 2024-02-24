@@ -1,26 +1,38 @@
 ---
 import classnames from 'classnames';
 
+type Size = 'xsm' | 'sm' | 'base' | 'lg';
+
 interface Props {
     /** background color must be a valid CSS string. e.g. var(--variable) */
     color?: string;
-    /** whether this wrapper is at the top of the page */
-    isTop?: boolean;
+    /** padding for the top of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
+    paddingTop?: Size;
+    /** padding for the bottom of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
+    paddingBottom?: Size;
     /** additional classes */
     class?: string;
 }
 
-const { color, isTop = false, class: className } = Astro.props;
+const { 
+    color, 
+    paddingTop = 'xsm', 
+    paddingBottom = 'xsm', 
+    class: className 
+} = Astro.props;
 const externalClasses = className ?? ''
 
 const simpleWrapperClasses = classnames({
     simple: 'true',
-    top: isTop,
     [externalClasses]: externalClasses,
 });
 ---
 
-<div class={simpleWrapperClasses} style={{ background: color }}>
+<div class={simpleWrapperClasses} style={{
+    background: color,
+    paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
+    paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+}}>
     <div class="content">
         <slot />
     </div>
@@ -31,7 +43,7 @@ const simpleWrapperClasses = classnames({
         position: relative;
         overflow: hidden;
         background-color: var(--bg-color);
-        padding: 60px 0;
+        padding: var(--section-wrapper-padding-xsm) 0;
     }
     .content {
         padding: 0 2rem;

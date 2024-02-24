@@ -13,23 +13,37 @@ import Title from '@components/Title.astro';
  * The secondary feature does not show when the primary feature is centered.
  * 
  * TODO: refactor the props so that the I will have a responsive object
- * TODO: make 
  * 
  */
 interface Props {
     feature?: string;
     title: string;
     description: string;
-    /** 'right' align has no effect on mobile */
+    /** 
+     * Secondary feature will not show in `center` alignment.
+     * `right` align has no effect on mobile.
+     */
     align?: 'left' | 'center' | 'right';
     /** makes it full width */
     isFullWidth?: boolean;
     /** The secondary feature does not normally show in mobile */
-    showSecondaryInMobile?: boolean;
-    isSecondaryImage?: boolean;
+    responsive?: {
+        showSecondaryInMobile?: boolean;
+        isSecondaryImage?: boolean;
+    }
 }
 
-const { feature, title, description, align = 'left', isFullWidth = false, showSecondaryInMobile = false, isSecondaryImage = false } = Astro.props;
+const {
+    feature,
+    title,
+    description,
+    align = 'left',
+    isFullWidth = false,
+    responsive = {
+        showSecondaryInMobile: false,
+        isSecondaryImage: false
+    }
+} = Astro.props;
 
 const showLeftSideContent = align === 'left' && !isFullWidth;
 const showRightSideContent = align === 'right' && !isFullWidth;
@@ -44,8 +58,8 @@ const primaryClasses = classnames({
 })
 const secondaryClasses = classnames({
     'feature-secondary': true,
-    'visible': showSecondaryInMobile,
-    'feature-secondary-image': isSecondaryImage,
+    'visible': responsive.showSecondaryInMobile,
+    'feature-secondary-image': responsive.isSecondaryImage,
 });
 ---
 
@@ -72,6 +86,7 @@ const secondaryClasses = classnames({
     .feature-section {
         margin: 32px 0;
         display: flex;
+        flex-direction: column;
     }
     .feature-primary {
         display: flex;
@@ -85,12 +100,15 @@ const secondaryClasses = classnames({
     }
     @media screen and (max-width: 1024px) {
         .feature-secondary-image {
-            width: 30%;
+            width: 35%;
         }
     }
     @media screen and (min-width: 640px) {
+        .feature-section {
+            flex-direction: row;
+        }
         .feature-secondary:not(.visible) {
-            display: block;
+            display: flex;
             position: relative;
             left: 0;
             overflow-x: visible;

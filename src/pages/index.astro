@@ -16,8 +16,19 @@ import ServicesSection from '@pre-built-sections/ServicesSection.astro';
 
 <Layout title="Welcome to Astro." description="description">
     <!-- first section -->
-    <SectionWrappers.Simple color="var(--bg-color-accent-light)" isTop>
-      <Sections.Feature align="left" title="What is Lorem Ipsum?" isSecondaryImage feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+    <SectionWrappers.Simple
+      color="var(--bg-color-accent-light)"
+      paddingTop="base"
+    >
+      <Sections.Feature
+        align="left"
+        responsive={{
+          isSecondaryImage: true,
+        }}
+        feature="Feature"
+        title="What is Lorem Ipsum?"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
+      >
         <div class="button-group">
           <Button variant="primary" href="/">
             hello
@@ -44,7 +55,15 @@ import ServicesSection from '@pre-built-sections/ServicesSection.astro';
           <Link href="/" size="sm">hello</Link>
         </div>
       </Sections.Feature>
-      <Sections.Feature showSecondaryInMobile align="right" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+      <Sections.Feature
+        responsive={{
+          showSecondaryInMobile: true,
+        }}
+        align="right"
+        feature="Feature"
+        title="What is Lorem Ipsum?"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
+      >
         <div slot="feature-secondary">
           secondary place
         </div>
