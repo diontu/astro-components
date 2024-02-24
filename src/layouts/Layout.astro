@@ -31,7 +31,9 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <Header nav={headerNav} isTransparent client:load/>
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer businessName={businessName} numOfColumns={4} nav={footerNav} legalNav={legalNav}/>
   </body>
 </html>

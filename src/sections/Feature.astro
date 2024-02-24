@@ -12,6 +12,9 @@ import Title from '@components/Title.astro';
  * 
  * The secondary feature does not show when the primary feature is centered.
  * 
+ * TODO: refactor the props so that the I will have a responsive object
+ * TODO: make 
+ * 
  */
 interface Props {
     feature?: string;
@@ -23,9 +26,10 @@ interface Props {
     isFullWidth?: boolean;
     /** The secondary feature does not normally show in mobile */
     showSecondaryInMobile?: boolean;
+    isSecondaryImage?: boolean;
 }
 
-const { feature, title, description, align = 'left', isFullWidth = false, showSecondaryInMobile = false } = Astro.props;
+const { feature, title, description, align = 'left', isFullWidth = false, showSecondaryInMobile = false, isSecondaryImage = false } = Astro.props;
 
 const showLeftSideContent = align === 'left' && !isFullWidth;
 const showRightSideContent = align === 'right' && !isFullWidth;
@@ -41,6 +45,7 @@ const primaryClasses = classnames({
 const secondaryClasses = classnames({
     'feature-secondary': true,
     'visible': showSecondaryInMobile,
+    'feature-secondary-image': isSecondaryImage,
 });
 ---
 
@@ -67,7 +72,6 @@ const secondaryClasses = classnames({
     .feature-section {
         margin: 32px 0;
         display: flex;
-        flex-direction: column;
     }
     .feature-primary {
         display: flex;
@@ -79,9 +83,17 @@ const secondaryClasses = classnames({
     .visible {
         display: block;
     }
+    @media screen and (max-width: 1024px) {
+        .feature-secondary-image {
+            width: 30%;
+        }
+    }
     @media screen and (min-width: 640px) {
         .feature-secondary:not(.visible) {
             display: block;
+            position: relative;
+            left: 0;
+            overflow-x: visible;
         }
     }
     .center {
@@ -101,7 +113,7 @@ const secondaryClasses = classnames({
     }
     @media screen and (min-width: 640px) {
         .feature-primary:not(.full-width) {
-            max-width: 50%;
+            min-width: 50%;
         }
     }
 </style>

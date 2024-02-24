@@ -7,23 +7,34 @@ import Title from "@components/Title.astro";
 import Link from "@components/Link.astro";
 import SectionWrappers from "@section-wrappers";
 import Sections from "@sections";
+import { Image } from "astro:assets";
+// images
+import phoneImage from '../../public/phones.png';
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro';
 ---
 
 <Layout title="Welcome to Astro." description="description">
-  <main>
+    <!-- first section -->
     <SectionWrappers.Simple color="var(--bg-color-accent-light)" isTop>
-      <Sections.Feature align="left" title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
+      <Sections.Feature align="left" title="What is Lorem Ipsum?" isSecondaryImage feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
         <div class="button-group">
           <Button variant="primary" href="/">
             hello
           </Button>
           <Link href="/" size="sm">hello</Link>
         </div>
+        <Image
+          slot="feature-secondary"
+          src={phoneImage}
+          alt="phones"
+          height={450}
+        />
+        <!-- <Image src={phoneImage} alt="phones"> -->
       </Sections.Feature>
       <ServicesSection />
     </SectionWrappers.Simple>
+    <!-- second section -->
     <SectionWrappers.Simple>
       <Sections.Feature align="center" isFullWidth title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
         <div class="button-group">
@@ -56,7 +67,6 @@ import ServicesSection from '@pre-built-sections/ServicesSection.astro';
     </Card>
 
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-  </main>
 </Layout>
 
 <style>
