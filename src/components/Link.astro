@@ -1,13 +1,13 @@
 ---
 interface Props {
-    id?: string;
-    href: string;
-    size: 'sm' | 'base';
-    class?: string;
+    id?: string
+    href: string
+    size: 'sm' | 'base'
+    class?: string
 }
 
-const { id: idName, href, class: className, size } = Astro.props;
-const id = idName ?? '';
+const { id: idName, href, class: className, size } = Astro.props
+const id = idName ?? ''
 ---
 
 <a id={id} href={href} class={`link ${className} ${size}`}>

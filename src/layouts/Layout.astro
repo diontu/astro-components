@@ -1,119 +1,127 @@
 ---
 // components
-import Footer from '@components/Footer.astro';
-import Header from '@components-react/Header';
+import Footer from '@components/Footer.astro'
+import Header from '@components-react/Header'
 
 // constants
-import { headerNav, footerNav, legalNav, businessName } from '@constants';
+import { headerNav, footerNav, legalNav, businessName } from '@constants'
 
 interface Props {
-  title: string;
-  description: string;
+    title: string
+    description: string
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- description should be 160 characters -->
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <!-- stop caching website content -->
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Header nav={headerNav} isTransparent client:load/>
-    <main>
-      <slot />
-    </main>
-    <Footer businessName={businessName} numOfColumns={4} nav={footerNav} legalNav={legalNav}/>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- description should be 160 characters -->
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <!-- stop caching website content -->
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header nav={headerNav} isTransparent client:load />
+        <main>
+            <slot />
+        </main>
+        <Footer
+            businessName={businessName}
+            numOfColumns={4}
+            nav={footerNav}
+            legalNav={legalNav}
+        />
+    </body>
 </html>
 
 <script>
-  // stop memory leak
-  window.addEventListener('unload', function () {
-      document.documentElement.innerHTML = ''
-  })
+    // stop memory leak
+    window.addEventListener('unload', function () {
+        document.documentElement.innerHTML = ''
+    })
 </script>
 
 <style is:global>
-  :root {
-    /* text */
-    --text-line-height: 1.6;
-    --text-color: #333b5f; /* a little different than --secondary color */
-    --text-color-inverted: white;
-    --text-sm: 16px;
-    --text-base: 18px;
-    /* header size */
-    --landing-page-font-size: 64px;
-    --h1-font-size: 38px;
-    --h2-font-size: 18px;
-    --footer-font-size: 15px;
-    /* colors */
-    --primary-color: #0377E4; /* light color */
-    --secondary-color: #011e3a; /* close to black color */
-    --bg-color: #f7f7f7; /* should not be completely white or completely black */
-    --footer-bg-color: #011529; /* darker than secondary color */
-    --legal-font-color: #b7b7b7; /* darker than bg-color */
-    /* widths, usually accompanied with margin: 0 auto; */
-    --max-header-width: 1064px;
-    --max-content-width: 1024px;
-    --max-footer-width: 1064px;
-    /* border */
-    --rounded-radius: 15px;
-    --card-radius: 8px;
-    /* responsive design widths (based on tailwind) */
-    --sm: 640px;
-    --md: 768px;
-    --lg: 1024px;
-    --xl: 1280px;
-    --2xl: 1536px;
-    /* mobile content margins */
-    --mobile-content-margins: 12px;
-    /* bg colors */
-    --bg-color-accent-light: #e8f2fb; /* a light secondary color */
-    --bg-color-accent-dark: var(--secondary-color);
-    --bg-color-accent-tertiary: white;
-    /* margins */
-    --section-y-margin: 80px;
-    /* paddings */
-    --section-wrapper-padding-xsm: 60px;
-    --section-wrapper-padding-sm: 100px;
-    --section-wrapper-padding-base: 150px;
-    --section-wrapper-padding-lg: 250px;
-    /* others */
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: Helvetica Neue, system-ui, sans-serif;
-    background: var(--bg-color);
-    font-size: var(--text-base);
-    color: var(--text-color);
-    /* good letter spacing for Helvetica Neue */
-    letter-spacing: 0.2px;
-    line-height: var(--text-line-height);
-  }
-  body {
-    margin: 0;
-  }
-  * {
-    box-sizing: border-box;
-  }
+    :root {
+        /* text */
+        --text-line-height: 1.6;
+        --text-color: #333b5f; /* a little different than --secondary color */
+        --text-color-inverted: white;
+        --text-sm: 16px;
+        --text-base: 18px;
+        /* header size */
+        --landing-page-font-size: 64px;
+        --h1-font-size: 38px;
+        --h2-font-size: 18px;
+        --footer-font-size: 15px;
+        /* colors */
+        --primary-color: #0377e4; /* light color */
+        --secondary-color: #011e3a; /* close to black color */
+        --bg-color: #f7f7f7; /* should not be completely white or completely black */
+        --footer-bg-color: #011529; /* darker than secondary color */
+        --legal-font-color: #b7b7b7; /* darker than bg-color */
+        /* widths, usually accompanied with margin: 0 auto; */
+        --max-header-width: 1064px;
+        --max-content-width: 1024px;
+        --max-footer-width: 1064px;
+        /* border */
+        --rounded-radius: 15px;
+        --card-radius: 8px;
+        /* responsive design widths (based on tailwind) */
+        --sm: 640px;
+        --md: 768px;
+        --lg: 1024px;
+        --xl: 1280px;
+        --2xl: 1536px;
+        /* mobile content margins */
+        --mobile-content-margins: 12px;
+        /* bg colors */
+        --bg-color-accent-light: #e8f2fb; /* a light secondary color */
+        --bg-color-accent-dark: var(--secondary-color);
+        --bg-color-accent-tertiary: white;
+        /* margins */
+        --section-y-margin: 80px;
+        /* paddings */
+        --section-wrapper-padding-xsm: 60px;
+        --section-wrapper-padding-sm: 100px;
+        --section-wrapper-padding-base: 150px;
+        --section-wrapper-padding-lg: 250px;
+        /* others */
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+            45deg,
+            rgb(var(--accent)),
+            rgb(var(--accent-light)) 30%,
+            white 60%
+        );
+    }
+    html {
+        font-family:
+            Helvetica Neue,
+            system-ui,
+            sans-serif;
+        background: var(--bg-color);
+        font-size: var(--text-base);
+        color: var(--text-color);
+        /* good letter spacing for Helvetica Neue */
+        letter-spacing: 0.2px;
+        line-height: var(--text-line-height);
+    }
+    body {
+        margin: 0;
+    }
+    * {
+        box-sizing: border-box;
+    }
 </style>

@@ -1,38 +1,41 @@
 ---
-import classnames from 'classnames';
+import classnames from 'classnames'
 
-type Size = 'xsm' | 'sm' | 'base' | 'lg';
+type Size = 'xsm' | 'sm' | 'base' | 'lg'
 
 interface Props {
     /** background color must be a valid CSS string. e.g. var(--variable) */
-    color?: string;
+    color?: string
     /** padding for the top of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
-    paddingTop?: Size;
+    paddingTop?: Size
     /** padding for the bottom of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
-    paddingBottom?: Size;
+    paddingBottom?: Size
     /** additional classes */
-    class?: string;
+    class?: string
 }
 
-const { 
-    color, 
-    paddingTop = 'xsm', 
-    paddingBottom = 'xsm', 
-    class: className 
-} = Astro.props;
+const {
+    color,
+    paddingTop = 'xsm',
+    paddingBottom = 'xsm',
+    class: className,
+} = Astro.props
 const externalClasses = className ?? ''
 
 const simpleWrapperClasses = classnames({
     simple: 'true',
     [externalClasses]: externalClasses,
-});
+})
 ---
 
-<div class={simpleWrapperClasses} style={{
-    background: color,
-    paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
-    paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
-}}>
+<div
+    class={simpleWrapperClasses}
+    style={{
+        background: color,
+        paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
+        paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+    }}
+>
     <div class="content">
         <slot />
     </div>

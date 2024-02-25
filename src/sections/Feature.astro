@@ -1,33 +1,33 @@
 ---
 // libraries
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 // components
-import Title from '@components/Title.astro';
+import Title from '@components/Title.astro'
 
 /**
  * This component accepts the following:
  * - <slot />
  * - <slot name="feature-secondary" />
- * 
+ *
  * The secondary feature does not show when the primary feature is centered.
- * 
+ *
  */
 interface Props {
-    feature?: string;
-    title: string;
-    description: string;
-    /** 
+    feature?: string
+    title: string
+    description: string
+    /**
      * Secondary feature will not show in `center` alignment.
      * `right` align has no effect on mobile.
      */
-    align?: 'left' | 'center' | 'right';
+    align?: 'left' | 'center' | 'right'
     /** makes it full width */
-    isFullWidth?: boolean;
+    isFullWidth?: boolean
     /** The secondary feature does not normally show in mobile */
     responsive?: {
-        showSecondaryInMobile?: boolean;
-        isSecondaryImage?: boolean;
+        showSecondaryInMobile?: boolean
+        isSecondaryImage?: boolean
     }
 }
 
@@ -39,16 +39,16 @@ const {
     isFullWidth = false,
     responsive = {
         showSecondaryInMobile: false,
-        isSecondaryImage: false
-    }
-} = Astro.props;
+        isSecondaryImage: false,
+    },
+} = Astro.props
 
-const showLeftSideContent = align === 'left' && !isFullWidth;
-const showRightSideContent = align === 'right' && !isFullWidth;
+const showLeftSideContent = align === 'left' && !isFullWidth
+const showRightSideContent = align === 'right' && !isFullWidth
 
 const sectionClasses = classnames({
     'feature-section': true,
-});
+})
 const primaryClasses = classnames({
     'feature-primary': true,
     [align]: true,
@@ -56,28 +56,32 @@ const primaryClasses = classnames({
 })
 const secondaryClasses = classnames({
     'feature-secondary': true,
-    'visible': responsive.showSecondaryInMobile,
+    visible: responsive.showSecondaryInMobile,
     'feature-secondary-image': responsive.isSecondaryImage,
-});
+})
 ---
 
 <section class={sectionClasses}>
-    {showRightSideContent && (
-        <div class={secondaryClasses}>
-            <slot name="feature-secondary" />
-        </div>
-    )}
+    {
+        showRightSideContent && (
+            <div class={secondaryClasses}>
+                <slot name="feature-secondary" />
+            </div>
+        )
+    }
     <div class={primaryClasses}>
         {feature && <Title variant={2}>{feature}</Title>}
         <Title variant={1} noPadding>{title}</Title>
         <div class="feature-description">{description}</div>
         <slot />
     </div>
-    {showLeftSideContent && (
-        <div class={secondaryClasses}>
-            <slot name="feature-secondary" />
-        </div>
-    )}
+    {
+        showLeftSideContent && (
+            <div class={secondaryClasses}>
+                <slot name="feature-secondary" />
+            </div>
+        )
+    }
 </section>
 
 <style>

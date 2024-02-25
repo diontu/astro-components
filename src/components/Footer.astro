@@ -1,22 +1,22 @@
 ---
-import SectionWrappers from '@section-wrappers';
+import SectionWrappers from '@section-wrappers'
 
 interface Props {
     // make required after footer component is ready
     nav?: FooterNav
-    legalNav?: Link[]; 
-    businessName: string;
-    numOfColumns: 2 | 4;
+    legalNav?: Link[]
+    businessName: string
+    numOfColumns: 2 | 4
 }
 
 export type FooterNav = {
-    title: string;
+    title: string
     links: Link[]
 }[]
 
 export type Link = {
-    label: string;
-    href: string;
+    label: string
+    href: string
 }
 
 const footerNav: FooterNav = [
@@ -30,8 +30,8 @@ const footerNav: FooterNav = [
             {
                 label: 'Other tax',
                 href: '/',
-            }
-        ]
+            },
+        ],
     },
     {
         title: 'Services',
@@ -43,8 +43,8 @@ const footerNav: FooterNav = [
             {
                 label: 'Other tax',
                 href: '/',
-            }
-        ]
+            },
+        ],
     },
     {
         title: 'Services',
@@ -56,10 +56,10 @@ const footerNav: FooterNav = [
             {
                 label: 'Other tax',
                 href: '/',
-            }
-        ]
-    }
-];
+            },
+        ],
+    },
+]
 const legalNav: Link[] = [
     {
         label: 'Terms & Conditions',
@@ -68,10 +68,10 @@ const legalNav: Link[] = [
     {
         label: 'Privacy Policy',
         href: '/',
-    }
-];
+    },
+]
 
-const { businessName, numOfColumns } = Astro.props;
+const { businessName, numOfColumns } = Astro.props
 
 const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
 ---
@@ -79,26 +79,32 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
 <SectionWrappers.Simple color="var(--footer-bg-color)">
     <div class={`footer ${colClass}`}>
         <div class="footer-column">
-            <div class="footer-category">{businessName}</div>    
+            <div class="footer-category">{businessName}</div>
         </div>
-        {footerNav.map(nav => (
-            <div class="footer-column">
-                <div class="footer-category">{nav.title}</div>
-                {nav.links.map(link => (
-                    <a class="footer-link" href={link.href}>
-                        {link.label}
-                    </a>
-                ))}
-            </div>
-        ))}
+        {
+            footerNav.map((nav) => (
+                <div class="footer-column">
+                    <div class="footer-category">{nav.title}</div>
+                    {nav.links.map((link) => (
+                        <a class="footer-link" href={link.href}>
+                            {link.label}
+                        </a>
+                    ))}
+                </div>
+            ))
+        }
     </div>
-    <hr class="horizontalLine"/>
+    <hr class="horizontalLine" />
     <div class="legal">
         <div>© Copyright {businessName} 2024</div>
         <div class="legal-links">
-            {legalNav.map(link => (
-                <a class="legal-link" href={link.href}>{link.label}</a>
-            ))}
+            {
+                legalNav.map((link) => (
+                    <a class="legal-link" href={link.href}>
+                        {link.label}
+                    </a>
+                ))
+            }
         </div>
     </div>
 </SectionWrappers.Simple>
@@ -109,7 +115,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
         font-size: var(--text-base);
         color: var(--bg-color);
         gap: 24px 8px;
-    }   
+    }
     .two-cols {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -118,8 +124,8 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     }
     @media screen and (min-width: 640px) {
         .four-cols {
-        grid-template-columns: repeat(4, 1fr);
-    }
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
     .footer-column {
         display: flex;

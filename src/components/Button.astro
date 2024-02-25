@@ -1,66 +1,68 @@
 ---
 // For any onclick items, assign an id and in the parent attach a "click" event listener.
 interface Props {
-  id?: string;
-  variant: 'primary' | 'secondary' | 'tertiary';
-  href?: string;
-  class?: string;
+    id?: string
+    variant: 'primary' | 'secondary' | 'tertiary'
+    href?: string
+    class?: string
 }
 
-const { id: idName, variant, href, class: className } = Astro.props;
-const id = idName ?? '';
+const { id: idName, variant, href, class: className } = Astro.props
+const id = idName ?? ''
 ---
 
-<!-- replicate the buttons... not ideal -->
-{!href && (
-  <button id={id ?? ''} class={`button ${variant} ${className}`}>
-    <slot />
-  </button>
-)}
-{href && (
-  <a href={href}>
-    <button id={id ?? ''} class={`button ${variant} ${className}`}>
-      <slot />
-    </button>
-  </a>
-)}
-
+<!-- replicate the buttons... not ideal -->{
+    !href && (
+        <button id={id ?? ''} class={`button ${variant} ${className}`}>
+            <slot />
+        </button>
+    )
+}
+{
+    href && (
+        <a href={href}>
+            <button id={id ?? ''} class={`button ${variant} ${className}`}>
+                <slot />
+            </button>
+        </a>
+    )
+}
 
 <style>
-  .button {
-    height: 30px;
-    font-family: inherit;
-    font-size: var(--text-sm);
-    border-style: none;
-    -webkit-border-radius: var(--rounded-radius);
-    -moz-border-radius: var(--rounded-radius);
-    border-radius: var(--rounded-radius);
-    cursor: pointer;
-    padding: 6px 12px;
-    transition: all 0.2s ease-in-out;
-  }
+    .button {
+        height: 30px;
+        font-family: inherit;
+        font-size: var(--text-sm);
+        border-style: none;
+        -webkit-border-radius: var(--rounded-radius);
+        -moz-border-radius: var(--rounded-radius);
+        border-radius: var(--rounded-radius);
+        cursor: pointer;
+        padding: 6px 12px;
+        transition: all 0.2s ease-in-out;
+    }
 
-  .primary {
-    background-color: var(--primary-color);
-    color: var(--text-color-inverted);
-  }
-  .primary:hover {
-    background-color: var(--secondary-color);
-  }
+    .primary {
+        background-color: var(--primary-color);
+        color: var(--text-color-inverted);
+    }
+    .primary:hover {
+        background-color: var(--secondary-color);
+    }
 
-  .secondary {
-    background-color: var(--secondary-color);
-    color: var(--text-color-inverted);
-  }
-  .secondary:hover {
-    opacity: 0.7;
-  }
+    .secondary {
+        background-color: var(--secondary-color);
+        color: var(--text-color-inverted);
+    }
+    .secondary:hover {
+        opacity: 0.7;
+    }
 
-  .tertiary {
-    background-color: white;
-    color: var(--text-color);
-  }
-  .tertiary:hover {
-    background-color: #d9d9d9;
-  }
+    .tertiary {
+        background-color: white;
+        color: var(--text-color);
+    }
+    .tertiary:hover {
+        background-color: #d9d9d9;
+    }
 </style>

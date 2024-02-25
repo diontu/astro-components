@@ -1,41 +1,43 @@
 ---
-import { servicesVersion } from 'typescript';
-import Card from '@components/Card.astro';
+import { servicesVersion } from 'typescript'
+import Card from '@components/Card.astro'
 
 const services = [
     {
         icon: '/burger-menu.svg',
         title: 'title',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+        description:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
     },
     {
         icon: '/burger-menu.svg',
         title: 'Tax Auditing',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+        description:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
     },
     {
         icon: '/burger-menu.svg',
         title: 'Tax Preparation',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
-    }
-];
+        description:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    },
+]
 ---
 
 <div class="services-section">
-    {services.map(service => (
-        <Card isFullWidth isPadded>
-            <div class="service-card">
-                <div>
-                    <img
-                        class="image"
-                        src={service.icon}
-                    />
-                    <div class="title">{service.title}</div>
+    {
+        services.map((service) => (
+            <Card isFullWidth isPadded>
+                <div class="service-card">
+                    <div>
+                        <img class="image" src={service.icon} />
+                        <div class="title">{service.title}</div>
+                    </div>
+                    <div class="description">{service.description}</div>
                 </div>
-                <div class="description">{service.description}</div>
-            </div>
-        </Card>
-    ))}
+            </Card>
+        ))
+    }
 </div>
 
 <style>

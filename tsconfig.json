@@ -1,18 +1,18 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@": ["src/"],
-      "@components/*": ["src/components/*"],
-      "@components-react/*": ["src/components/react/*"],
-      "@sections": ["src/sections/index.ts"],
-      "@section-wrappers": ["src/section-wrappers/index.ts"],
-      "@pre-built-sections/*": ["src/sections/pre-built/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@constants": ["src/constants.ts"]
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@": ["src/"],
+            "@components/*": ["src/components/*"],
+            "@components-react/*": ["src/components/react/*"],
+            "@sections": ["src/sections/index.ts"],
+            "@section-wrappers": ["src/section-wrappers/index.ts"],
+            "@pre-built-sections/*": ["src/sections/pre-built/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@constants": ["src/constants.ts"]
+        }
     }
-  }
 }

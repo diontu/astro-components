@@ -1,5 +1,5 @@
-import SimpleWrapper from "./SimpleWrapper.astro";
+import SimpleWrapper from './SimpleWrapper.astro'
 
 export default {
-  Simple: SimpleWrapper,
-};
+    Simple: SimpleWrapper,
+}

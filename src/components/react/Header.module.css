@@ -1,114 +1,114 @@
 .header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: var(--bg-color);
-  z-index: 100;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 100;
 }
 @media screen and (min-width: 640px) {
-  .transparentHeader {
-    background-color: transparent;
-  }
+    .transparentHeader {
+        background-color: transparent;
+    }
 }
 .mobileNavOpened {
-  -webkit-box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
-  box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.18);
 }
 
 .navigationWrapper {
-  padding: 24px 16px;
-  border-bottom: solid 1px #d3d3d3;
-  max-width: var(--max-header-width);
-  margin: 0 auto;
+    padding: 24px 16px;
+    border-bottom: solid 1px #d3d3d3;
+    max-width: var(--max-header-width);
+    margin: 0 auto;
 }
 @media screen and (min-width: 640px) {
-  .navigationWrapper {
-    padding: 0 32px;
-  }
+    .navigationWrapper {
+        padding: 0 32px;
+    }
 }
 .navFullWidth {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .desktopMenu {
-  display: none;
-  list-style: none;
+    display: none;
+    list-style: none;
 }
 @media screen and (min-width: 640px) {
-  .desktopMenu {
-    display: flex;
-  }
+    .desktopMenu {
+        display: flex;
+    }
 }
 
 .navLink {
-  text-decoration: none;
-  color: var(--text-color);
-  font-size: var(--text-sm);
-  padding: 8px 16px;
-  margin-left: 8px;
-  font-weight: 500;
-  border-radius: var(--rounded-radius);
-  border-style: none;
-  transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: var(--text-sm);
+    padding: 8px 16px;
+    margin-left: 8px;
+    font-weight: 500;
+    border-radius: var(--rounded-radius);
+    border-style: none;
+    transition: all 0.2s ease-in-out;
 }
 .navLink:hover {
-  opacity: 0.6;
+    opacity: 0.6;
 }
 
 .image {
-  display: block;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  border: 1px solid var(--bg-color);
-  padding: 4px;
-  border-radius: 50%;
+    display: block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: 1px solid var(--bg-color);
+    padding: 4px;
+    border-radius: 50%;
 }
 @media screen and (min-width: 640px) {
-  .image {
-    display: none;
-  }
+    .image {
+        display: none;
+    }
 }
 .openedMenu {
-  border-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .mobileMenu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0;
-  background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: var(--bg-color);
 }
 @media screen and (min-width: 640px) {
-  .mobileMenu {
-    display: none;
-  }
+    .mobileMenu {
+        display: none;
+    }
 }
 
 .mobileLinkWrapper {
-  font-weight: 500;
-  border-top: solid 1px #d3d3d3;
+    font-weight: 500;
+    border-top: solid 1px #d3d3d3;
 }
 
 .mobileLinks {
-  height: 100%;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+    height: 100%;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
 }
 .mobileLinks:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .mobileLinkBlock {
-  padding: 30px 12px;
+    padding: 30px 12px;
 }

@@ -1,103 +1,101 @@
 ---
 // components
-import Layout from "@layouts/Layout.astro";
-import Card from "@components/Card.astro";
-import Button from "@components/Button.astro";
-import Title from "@components/Title.astro";
-import Link from "@components/Link.astro";
-import SectionWrappers from "@section-wrappers";
-import Sections from "@sections";
-import { Image } from "astro:assets";
+import Layout from '@layouts/Layout.astro'
+import Card from '@components/Card.astro'
+import Button from '@components/Button.astro'
+import Title from '@components/Title.astro'
+import Link from '@components/Link.astro'
+import SectionWrappers from '@section-wrappers'
+import Sections from '@sections'
+import { Image } from 'astro:assets'
 // images
-import phoneImage from '../../public/phones.png';
+import phoneImage from '../../public/phones.png'
 // pre-built sections
-import ServicesSection from '@pre-built-sections/ServicesSection.astro';
+import ServicesSection from '@pre-built-sections/ServicesSection.astro'
 ---
 
 <Layout title="Welcome to Astro." description="description">
     <!-- first section -->
     <SectionWrappers.Simple
-      color="var(--bg-color-accent-light)"
-      paddingTop="base"
+        color="var(--bg-color-accent-light)"
+        paddingTop="base"
     >
-      <Sections.Feature
-        align="left"
-        responsive={{
-          isSecondaryImage: true,
-        }}
-        feature="Feature"
-        title="What is Lorem Ipsum?"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
-      >
-        <div class="button-group">
-          <Button variant="primary" href="/">
-            hello
-          </Button>
-          <Link href="/" size="sm">hello</Link>
-        </div>
-        <Image
-          slot="feature-secondary"
-          src={phoneImage}
-          alt="phones"
-          height={450}
-        />
-        <!-- <Image src={phoneImage} alt="phones"> -->
-      </Sections.Feature>
-      <ServicesSection />
+        <Sections.Feature
+            align="left"
+            responsive={{
+                isSecondaryImage: true,
+            }}
+            feature="Feature"
+            title="What is Lorem Ipsum?"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
+        >
+            <div class="button-group">
+                <Button variant="primary" href="/"> hello </Button>
+                <Link href="/" size="sm">hello</Link>
+            </div>
+            <Image
+                slot="feature-secondary"
+                src={phoneImage}
+                alt="phones"
+                height={450}
+            />
+            <!-- <Image src={phoneImage} alt="phones"> -->
+        </Sections.Feature>
+        <ServicesSection />
     </SectionWrappers.Simple>
     <!-- second section -->
     <SectionWrappers.Simple>
-      <Sections.Feature align="center" isFullWidth title="What is Lorem Ipsum?" feature="Feature" description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ">
-        <div class="button-group">
-          <Button variant="primary" href="/">
-            hello
-          </Button>
-          <Link href="/" size="sm">hello</Link>
-        </div>
-      </Sections.Feature>
-      <Sections.Feature
-        responsive={{
-          showSecondaryInMobile: true,
-        }}
-        align="right"
-        feature="Feature"
-        title="What is Lorem Ipsum?"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
-      >
-        <div slot="feature-secondary">
-          secondary place
-        </div>
-        <div class="button-group">
-          <Button variant="primary" href="/">
-            hello
-          </Button>
-          <Link href="/" size="sm">hello</Link>
-        </div>
-      </Sections.Feature>
+        <Sections.Feature
+            align="center"
+            isFullWidth
+            title="What is Lorem Ipsum?"
+            feature="Feature"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
+        >
+            <div class="button-group">
+                <Button variant="primary" href="/"> hello </Button>
+                <Link href="/" size="sm">hello</Link>
+            </div>
+        </Sections.Feature>
+        <Sections.Feature
+            responsive={{
+                showSecondaryInMobile: true,
+            }}
+            align="right"
+            feature="Feature"
+            title="What is Lorem Ipsum?"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
+        >
+            <div slot="feature-secondary">secondary place</div>
+            <div class="button-group">
+                <Button variant="primary" href="/"> hello </Button>
+                <Link href="/" size="sm">hello</Link>
+            </div>
+        </Sections.Feature>
     </SectionWrappers.Simple>
     <Title variant={1}>hello</Title>
     <Link href="/" size="sm">hello</Link>
     <Card>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
     </Card>
 
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
 </Layout>
 
 <style>
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .button-group {
-    display: flex;
-    gap: 18px;
-  }
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+    .button-group {
+        display: flex;
+        gap: 18px;
+    }
 </style>

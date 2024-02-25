@@ -1,5 +1,5 @@
-import Feature from "./Feature.astro";
+import Feature from './Feature.astro'
 
 export default {
-  Feature: Feature,
-};
+    Feature: Feature,
+}
