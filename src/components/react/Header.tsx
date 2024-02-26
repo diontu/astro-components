@@ -12,6 +12,7 @@ interface Props {
     isTransparent?: boolean
     isFullWidth?: boolean
     nav: NavigationType[]
+    children?: React.ReactNode
 }
 
 const Header = (props: Props): JSX.Element => {
@@ -31,16 +32,22 @@ const Header = (props: Props): JSX.Element => {
                     {/* TODO: make it so that it's an image that has a fixed width and height */}
                     <label>DesignX</label>
                     {/* desktop menu */}
-                    <ul className={styles.desktopMenu}>
-                        {props.nav.map((menu) => (
-                            <li key={menu.title}>
-                                <a className={styles.navLink} href={menu.href}>
-                                    {menu.title}
-                                </a>
-                                {}
-                            </li>
-                        ))}
-                    </ul>
+                    <div className={styles.desktopMenu}>
+                        <ul className={styles.navList}>
+                            {props.nav.map((menu) => (
+                                <li key={menu.title}>
+                                    <a
+                                        className={styles.navLink}
+                                        href={menu.href}
+                                    >
+                                        {menu.title}
+                                    </a>
+                                    {}
+                                </li>
+                            ))}
+                        </ul>
+                        {props.children}
+                    </div>
                     {/* mobile menu icon */}
                     <img
                         onClick={menuHandler}
@@ -56,23 +63,26 @@ const Header = (props: Props): JSX.Element => {
                 </div>
                 {/* mobile menu */}
                 {$isMenuOpen && (
-                    <ul id="mobile-menu" className={styles.mobileMenu}>
-                        {props.nav.map((menu) => (
-                            <li
-                                key={menu.title}
-                                className={styles.mobileLinkWrapper}
-                            >
-                                <a
-                                    className={styles.mobileLinks}
-                                    href={menu.href}
+                    <div className={styles.mobileMenuContainer}>
+                        <ul id="mobile-menu" className={styles.mobileMenu}>
+                            {props.nav.map((menu) => (
+                                <li
+                                    key={menu.title}
+                                    className={styles.mobileLinkWrapper}
                                 >
-                                    <div className={styles.mobileLinkBlock}>
-                                        {menu.title}
-                                    </div>
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                                    <a
+                                        className={styles.mobileLinks}
+                                        href={menu.href}
+                                    >
+                                        <div className={styles.mobileLinkBlock}>
+                                            {menu.title}
+                                        </div>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                        {props.children}
+                    </div>
                 )}
             </nav>
         </header>

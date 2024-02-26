@@ -6,14 +6,14 @@
         "baseUrl": ".",
         "paths": {
             "@public": ["public/*"],
-            "@src": ["src/*"],
-            "@components/*": ["src/components/*"],
             "@components-react/*": ["src/components/react/*"],
+            "@components/*": ["src/components/*"],
+            "@pre-built-sections/*": ["src/sections/pre-built/*"],
             "@sections": ["src/sections/index.ts"],
             "@section-wrappers": ["src/section-wrappers/index.ts"],
-            "@pre-built-sections/*": ["src/sections/pre-built/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@constants": ["src/constants.ts"]
+            "@constants": ["src/constants.ts"],
+            "@src": ["src/*"]
         }
     }
 }

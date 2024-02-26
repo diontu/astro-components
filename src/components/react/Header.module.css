@@ -36,9 +36,13 @@
     align-items: center;
 }
 
+.navList {
+    list-style: none;
+    display: flex;
+}
+
 .desktopMenu {
     display: none;
-    list-style: none;
 }
 @media screen and (min-width: 640px) {
     .desktopMenu {
@@ -79,23 +83,29 @@
     border-color: var(--primary-color);
 }
 
+.mobileMenuContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .mobileMenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style: none;
     padding: 0;
-    margin-bottom: 0;
     background-color: var(--bg-color);
 }
 @media screen and (min-width: 640px) {
-    .mobileMenu {
+    .mobileMenuContainer {
         display: none;
     }
 }
 
 .mobileLinkWrapper {
     font-weight: 500;
+}
+.mobileLinkWrapper:first-child {
     border-top: solid 1px #d3d3d3;
 }
 
@@ -110,5 +120,5 @@
 }
 
 .mobileLinkBlock {
-    padding: 30px 12px;
+    padding: 12px 12px;
 }
