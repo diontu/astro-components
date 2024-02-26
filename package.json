@@ -12,11 +12,6 @@
         "lint-staged": "lint-staged",
         "prepare": "husky"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint-staged"
-        }
-    },
     "lint-staged": {
         "*.astro": "prettier --write ."
     },
