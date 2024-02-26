@@ -24,6 +24,8 @@ interface Props {
     align?: 'left' | 'center' | 'right'
     /** makes it full width */
     isFullWidth?: boolean
+    /** Invert the text color to a lighter color */
+    invertTextColor?: boolean
     /** The secondary feature does not normally show in mobile */
     responsive?: {
         showSecondaryInMobile?: boolean
@@ -37,6 +39,7 @@ const {
     description,
     align = 'left',
     isFullWidth = false,
+    invertTextColor = false,
     responsive = {
         showSecondaryInMobile: false,
         isSecondaryImage: false,
@@ -48,6 +51,7 @@ const showRightSideContent = align === 'right' && !isFullWidth
 
 const sectionClasses = classnames({
     'feature-section': true,
+    invertTextColor: invertTextColor,
 })
 const primaryClasses = classnames({
     'feature-primary': true,
@@ -99,6 +103,9 @@ const secondaryClasses = classnames({
     }
     .visible {
         display: block;
+    }
+    .invertTextColor {
+        color: var(--text-color-inverted);
     }
     @media screen and (max-width: 1024px) {
         .feature-secondary-image {
