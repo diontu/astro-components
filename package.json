@@ -18,7 +18,7 @@
         }
     },
     "lint-staged": {
-        "*.astro": "npm run prettier"
+        "*.astro": "prettier --write ."
     },
     "dependencies": {
         "@astrojs/check": "^0.5.4",
