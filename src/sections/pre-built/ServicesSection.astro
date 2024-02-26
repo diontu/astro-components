@@ -2,11 +2,11 @@
 import Card from '@components/Card.astro'
 
 type Services = {
-    src?: string;
-    icon?: string;
-    title: string;
-    description: string;
-}[];
+    src?: string
+    icon?: string
+    title: string
+    description: string
+}[]
 
 const services: Services = [
     {
@@ -37,7 +37,9 @@ const services: Services = [
                 <div class="service-card">
                     <div>
                         {service.src && <img class="image" src={service.src} />}
-                        {service.icon && <i class={`icon fa-solid ${service.icon}`} />}
+                        {service.icon && (
+                            <i class={`icon fa-solid ${service.icon}`} />
+                        )}
                         <div class="title">{service.title}</div>
                     </div>
                     <div class="description">{service.description}</div>
