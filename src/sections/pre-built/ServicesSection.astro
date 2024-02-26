@@ -1,22 +1,28 @@
 ---
-import { servicesVersion } from 'typescript'
 import Card from '@components/Card.astro'
 
-const services = [
+type Services = {
+    src?: string;
+    icon?: string;
+    title: string;
+    description: string;
+}[];
+
+const services: Services = [
     {
-        icon: '/burger-menu.svg',
+        icon: 'fa-home',
         title: 'title',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
     },
     {
-        icon: '/burger-menu.svg',
+        icon: 'fa-home',
         title: 'Tax Auditing',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
     },
     {
-        icon: '/burger-menu.svg',
+        icon: 'fa-home',
         title: 'Tax Preparation',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
@@ -30,7 +36,8 @@ const services = [
             <Card isFullWidth isPadded>
                 <div class="service-card">
                     <div>
-                        <img class="image" src={service.icon} />
+                        {service.src && <img class="image" src={service.src} />}
+                        {service.icon && <i class={`icon fa-solid ${service.icon}`} />}
                         <div class="title">{service.title}</div>
                     </div>
                     <div class="description">{service.description}</div>
@@ -41,6 +48,9 @@ const services = [
 </div>
 
 <style>
+    .icon {
+        font-size: 48px;
+    }
     .services-section {
         display: grid;
         grid-template-columns: 1fr;
