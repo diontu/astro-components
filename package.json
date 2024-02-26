@@ -9,11 +9,12 @@
         "preview": "astro preview",
         "astro": "astro",
         "prettier": "prettier 'src/**/*.astro' --write .",
+        "lint-staged": "lint-staged",
         "prepare": "husky"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "npm run lint-staged"
         }
     },
     "lint-staged": {
