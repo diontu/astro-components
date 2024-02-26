@@ -15,6 +15,7 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── constants.ts                // holds constants for the app.
 │   ├── components/                 // essentially the atomic units of the website (minus built html tags).
 │   │   └── Card.astro
 │   ├── layouts/                    // layouts for the entire page.
@@ -39,9 +40,27 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 This folder holds the atomic units of the website (minus the built-in html tags (a, div, span, etc)).
 
+```ts
+import Card from '@components/Card.astro'
+```
+
+```tsx
+<Card>....</Card>
+```
+
 ### 📝 layouts
 
 This folder holds the layouts for the entire page. I should only use one per page.
+
+```ts
+import Layout from '@layouts/layout.astro'
+```
+
+```tsx
+<Layout title="meta title" description="meta tag description">
+    ....
+</Layout>
+```
 
 **Functionality:**
 
@@ -59,13 +78,31 @@ The page itself. This is folder based routing so a folder with "about" and an `i
 
 This folder holds the section wrappers. I can use multiple section-wrappers per layout.
 
+```ts
+import SectionWrappers from '@sections-wrappers'
+```
+
+```tsx
+<SectionWrappers.Simple>....</SectionWrappers.Simple>
+```
+
 **Functionality:**
 
 -   A section-wrapper can holder multiple sections.
 
 ### 📦 sections
 
-This folder holds the sections. I can use multiple per sections per section-wrapper.
+This folder holds the sections. I can use multiple per sections per section-wrapper. This holds the templates for each section
+
+import alias and use:
+
+```ts
+import Sections from '@sections'
+```
+
+```tsx
+<Sections.Feature>....</Sections.Feature>
+```
 
 **Functionality:**
 
