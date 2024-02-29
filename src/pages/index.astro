@@ -12,14 +12,18 @@ import { Image } from 'astro:assets'
 import phoneImage from '../../public/phones.png'
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
+
+const title = 'Gruut'
+const description = ''
 ---
 
-<Layout title="Welcome to Astro." description="description">
+<Layout title={title} description={description}>
     <!-- first section -->
     <SectionWrappers.Simple
         color="var(--bg-color-accent-light)"
         paddingTop="base"
     >
+        <SectionWrappers.Background.Wave slot="bg" />
         <Sections.Feature
             align="left"
             responsive={{
@@ -39,7 +43,6 @@ import ServicesSection from '@pre-built-sections/ServicesSection.astro'
                 alt="phones"
                 height={450}
             />
-            <!-- <Image src={phoneImage} alt="phones"> -->
         </Sections.Feature>
         <ServicesSection />
     </SectionWrappers.Simple>

@@ -16,8 +16,8 @@ interface Props {
 
 const {
     color,
-    paddingTop = 'xsm',
-    paddingBottom = 'xsm',
+    paddingTop = 'none',
+    paddingBottom = 'none',
     class: className,
 } = Astro.props
 const externalClasses = className ?? ''
@@ -32,13 +32,18 @@ const simpleWrapperClasses = classnames({
     class={simpleWrapperClasses}
     style={{
         background: color,
-        paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
-        paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
     }}
 >
-    <div class="content">
+    <div
+        class="content"
+        style={{
+            paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
+            paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+        }}
+    >
         <slot />
     </div>
+    <slot name="bg" />
 </div>
 
 <style>
@@ -46,9 +51,11 @@ const simpleWrapperClasses = classnames({
         position: relative;
         overflow: hidden;
         background-color: var(--bg-color);
-        padding: var(--section-wrapper-padding-xsm) 0;
+        padding: 0;
     }
     .content {
+        background-color: transparent;
+        z-index: 100;
         padding: 0 2rem;
         margin: 0 auto;
         max-width: var(--max-content-width);
