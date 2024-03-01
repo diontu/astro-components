@@ -18,7 +18,7 @@
 .navigationWrapper {
     padding: 24px 16px;
     border-bottom: solid 1px #d3d3d3;
-    max-width: var(--max-header-width);
+    max-width: var(--max-width-header);
     margin: 0 auto;
 }
 @media screen and (min-width: 640px) {

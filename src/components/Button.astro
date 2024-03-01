@@ -3,6 +3,7 @@
 interface Props {
     id?: string
     variant: 'primary' | 'secondary' | 'tertiary'
+    size?: 'sm' | 'md' | 'lg' // TODO: add the button sizings CSS
     href?: string
     class?: string
 }
@@ -59,7 +60,7 @@ const id = idName ?? ''
     }
 
     .tertiary {
-        background-color: white;
+        background-color: var(--color-0);
         color: var(--text-color);
     }
     .tertiary:hover {

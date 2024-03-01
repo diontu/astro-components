@@ -3,8 +3,8 @@ import SectionWrappers from '@section-wrappers'
 
 interface Props {
     // make required after footer component is ready
-    nav?: FooterNav
-    legalNav?: Link[]
+    nav: FooterNav
+    legalNav: Link[]
     businessName: string
     numOfColumns: 2 | 4
 }
@@ -19,64 +19,16 @@ export type Link = {
     href: string
 }
 
-const footerNav: FooterNav = [
-    {
-        title: 'Services',
-        links: [
-            {
-                label: 'Tax',
-                href: '/',
-            },
-            {
-                label: 'Other tax',
-                href: '/',
-            },
-        ],
-    },
-    {
-        title: 'Services',
-        links: [
-            {
-                label: 'Tax',
-                href: '/',
-            },
-            {
-                label: 'Other tax',
-                href: '/',
-            },
-        ],
-    },
-    {
-        title: 'Services',
-        links: [
-            {
-                label: 'Tax',
-                href: '/',
-            },
-            {
-                label: 'Other tax',
-                href: '/',
-            },
-        ],
-    },
-]
-const legalNav: Link[] = [
-    {
-        label: 'Terms & Conditions',
-        href: '/',
-    },
-    {
-        label: 'Privacy Policy',
-        href: '/',
-    },
-]
-
-const { businessName, numOfColumns } = Astro.props
+const { nav: footerNav, legalNav, businessName, numOfColumns } = Astro.props
 
 const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
 ---
 
-<SectionWrappers.Simple color="var(--footer-bg-color)">
+<SectionWrappers.Simple
+    color="var(--footer-bg-color)"
+    paddingTop="sm"
+    paddingBottom="xsm"
+>
     <div class={`footer ${colClass}`}>
         <div class="footer-column">
             <div class="footer-category">{businessName}</div>
@@ -137,7 +89,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     }
     .footer-link {
         text-decoration: none;
-        font-size: var(--footer-font-size);
+        font-size: var(--font-size-footer);
         color: var(--bg-color);
         margin-bottom: 8px;
     }
@@ -149,7 +101,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     .legal {
         display: flex;
         justify-content: space-between;
-        font-size: var(--footer-font-size);
+        font-size: var(--font-size-footer);
         color: var(--legal-font-color);
     }
     .legal-links {

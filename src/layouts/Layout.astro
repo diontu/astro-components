@@ -58,25 +58,43 @@ const { title, description } = Astro.props
     :root {
         /* text */
         --text-line-height: 1.6;
-        --text-color: #333b5f; /* a little different than --secondary color */
-        --text-color-inverted: white;
+        --text-color: var(
+            --color-9
+        ); /* a little different than --secondary color */
+        --text-color-inverted: var(--color-0);
+        --text-xsm: 14px;
         --text-sm: 16px;
         --text-base: 18px;
         /* header size */
-        --landing-page-font-size: 64px;
-        --h1-font-size: 38px;
-        --h2-font-size: 18px;
-        --footer-font-size: 15px;
+        --font-size-hero: 64px;
+        --font-size-h1: 38px;
+        --font-size-h2: 18px;
+        --font-size-footer: 15px;
         /* colors */
-        --primary-color: #0377e4; /* light color */
-        --secondary-color: #011e3a; /* close to black color */
-        --bg-color: #f7f7f7; /* should not be completely white or completely black */
-        --footer-bg-color: #011529; /* darker than secondary color */
+        --color-white: white;
+        --color-0: #e6f3ff;
+        --color-1: #b3dafe;
+        --color-2: #81c1fd;
+        --color-3: #4fa8fd;
+        --color-4: #1c90fc;
+        --color-5: #0376e3;
+        --color-6: #025cb0;
+        --color-7: #02427e;
+        --color-8: #01274c;
+        --color-9: #000d19;
+        --color-black: black;
+
+        --primary-color: var(--color-5); /* light color */
+        --secondary-color: var(--color-7); /* close to black color */
+        --bg-color: var(
+            --color-0
+        ); /* should not be completely white or completely black */
+        --footer-bg-color: var(--color-8); /* darker than secondary color */
         --legal-font-color: #b7b7b7; /* darker than bg-color */
         /* widths, usually accompanied with margin: 0 auto; */
-        --max-header-width: 1064px;
-        --max-content-width: 1024px;
-        --max-footer-width: 1064px;
+        --max-width-header: 1064px;
+        --max-width-content: 1024px;
+        --max-width-footer: 1064px;
         /* border */
         --rounded-radius: 15px;
         --card-radius: 8px;
@@ -89,9 +107,9 @@ const { title, description } = Astro.props
         /* mobile content margins */
         --mobile-content-margins: 12px;
         /* bg colors */
-        --bg-color-accent-light: #e8f2fb; /* a light secondary color */
+        --bg-color-accent-light: var(--color-0); /* a light secondary color */
         --bg-color-accent-dark: var(--secondary-color);
-        --bg-color-accent-tertiary: white;
+        --bg-color-accent-tertiary: var(--color-white);
         /* margins */
         --section-y-margin: 80px;
         /* paddings */
