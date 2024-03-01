@@ -1,4 +1,4 @@
-import type { NavigationType } from '@components-react/Header'
+import type { NavigationType } from '@components-react/Header/Header'
 import type { FooterNav, Link } from '@components/Footer.astro'
 
 // business
