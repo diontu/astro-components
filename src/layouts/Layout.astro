@@ -118,6 +118,10 @@ const { title, description } = Astro.props
         --section-wrapper-padding-base: 150px;
         --section-wrapper-padding-lg: 250px;
         /* others */
+        --font-family-classy: Georgia, Palatino, Baskerville;
+        --font-family-casual-1: Helvetica Neue, system-ui, sans-serif;
+        --font-family-casual-2: Tahoma, Verdana, Arial;
+
         --accent: 136, 58, 234;
         --accent-light: 224, 204, 250;
         --accent-dark: 49, 10, 101;
@@ -129,10 +133,7 @@ const { title, description } = Astro.props
         );
     }
     html {
-        font-family:
-            Helvetica Neue,
-            system-ui,
-            sans-serif;
+        font-family: var(--font-family-casual-1);
         background: var(--bg-color);
         font-size: var(--text-base);
         color: var(--text-color);
