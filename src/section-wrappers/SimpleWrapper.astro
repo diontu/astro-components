@@ -1,7 +1,8 @@
 ---
 import classnames from 'classnames'
 
-type Size = 'none' | 'xsm' | 'sm' | 'base' | 'lg'
+const sizes = ['none', 'xsm', 'sm', 'base', 'lg', 'xl'] as const
+export type Size = (typeof sizes)[number]
 
 interface Props {
     /** background color must be a valid CSS string. e.g. var(--variable) */

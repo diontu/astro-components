@@ -9,6 +9,7 @@ import GridItem, { type ColumnNumber } from '@components-react/Grid/GridItem'
 
 // types
 import type { GapNumbers } from '@components-react/Grid/Grid'
+import type { Size } from '@src/section-wrappers/SimpleWrapper.astro'
 
 /**
  * This component accepts the following:
@@ -19,18 +20,20 @@ import type { GapNumbers } from '@components-react/Grid/Grid'
  *
  */
 interface Props {
+    paddingTop?: Size
+    paddingBottom?: Size
     /** Invert the text color to a lighter color */
     invertTextColor?: boolean
-
     /** gap between primary and secondary content */
     gap?: GapNumbers
-
     /** The primary feature props */
     primary: {
         /** h2 text */
         feature?: string
         /** h1 text */
         title: string
+        /** title variant */
+        titleVariant?: 'landing-page' | 1
         /** description */
         description: string
         /**
@@ -49,11 +52,14 @@ interface Props {
 }
 
 const {
+    paddingTop = 'none',
+    paddingBottom = 'none',
     invertTextColor = false,
     gap = undefined,
     primary = {
         feature: '',
         title: '',
+        titleVariant: 1,
         description: '',
         align: 'left',
         col: undefined,
@@ -93,7 +99,13 @@ const primaryColumns = primary.col ?? 6
 const secondaryColumns = (12 - primaryColumns) as ColumnNumber
 ---
 
-<section class={sectionClasses}>
+<section
+    class={sectionClasses}
+    style={{
+        paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
+        paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+    }}
+>
     <Grid gap={gap}>
         {
             showSecondaryOnLeft && (
@@ -111,7 +123,9 @@ const secondaryColumns = (12 - primaryColumns) as ColumnNumber
                         <Title variant={2}>{primary.feature}</Title>
                     )
                 }
-                <Title variant={1} noPadding>{primary.title}</Title>
+                <Title variant={primary.titleVariant ?? 1} noPadding
+                    >{primary.title}</Title
+                >
                 <div class="feature-description">{primary.description}</div>
                 <slot />
             </div>

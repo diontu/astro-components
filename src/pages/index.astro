@@ -27,7 +27,7 @@ const description = ''
     >
         <SectionWrappers.Background.Wave slot="bg" />
         <Sections.Feature
-            gap={2}
+            gap={3}
             secondary={{
                 isImage: true,
                 hideInMobile: true,
@@ -36,6 +36,7 @@ const description = ''
                 align: 'right',
                 feature: 'Feature',
                 title: 'What is Lorem Isum?',
+                titleVariant: 'landing-page',
                 description:
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
             }}
@@ -62,10 +63,19 @@ const description = ''
                 height={450}
             />
         </Sections.Feature>
+    </SectionWrappers.Simple>
+    <SectionWrappers.Simple
+        color="var(--bg-color-accent-light)"
+        paddingTop="xsm"
+        paddingBottom="xsm"
+    >
         <ServicesSection />
     </SectionWrappers.Simple>
     <!-- second section -->
-    <SectionWrappers.Simple color="var(--bg-color-accent-dark)">
+    <SectionWrappers.Simple
+        color="var(--bg-color-accent-dark)"
+        paddingTop="xsm"
+    >
         <Sections.Feature
             invertTextColor
             primary={{

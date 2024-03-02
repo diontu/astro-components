@@ -5,7 +5,7 @@
         "jsxImportSource": "react",
         "baseUrl": ".",
         "paths": {
-            "@public": ["public/*"],
+            "@public/*": ["public/*"],
             "@components-react/*": ["src/components/react/*"],
             "@components/*": ["src/components/*"],
             "@pre-built-sections/*": ["src/sections/pre-built/*"],
@@ -13,7 +13,7 @@
             "@section-wrappers": ["src/section-wrappers/index.ts"],
             "@layouts/*": ["src/layouts/*"],
             "@constants": ["src/constants.ts"],
-            "@src": ["src/*"]
+            "@src/*": ["src/*"]
         }
     }
 }
