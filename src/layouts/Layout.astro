@@ -61,16 +61,18 @@ const { title, description } = Astro.props
         --text-color: var(
             --color-9
         ); /* a little different than --secondary color */
-        --text-color-inverted: var(--color-0);
+        --text-color-inverted: var(--bg-color);
         --text-xsm: 14px;
         --text-sm: 16px;
         --text-base: 18px;
+        --text-lg: 20px;
         /* header size */
         --font-size-hero: 64px;
         --font-size-h1: 38px;
         --font-size-h2: 18px;
         --font-size-footer: 15px;
         /* colors */
+        --color-de-emphasized: #b7b7b7;
         --color-white: white;
         --color-0: #e6f3ff;
         --color-1: #b3dafe;
@@ -90,14 +92,22 @@ const { title, description } = Astro.props
             --color-0
         ); /* should not be completely white or completely black */
         --footer-bg-color: var(--color-8); /* darker than secondary color */
-        --legal-font-color: #b7b7b7; /* darker than bg-color */
+        --legal-font-color: var(
+            --color-de-emphasized
+        ); /* darker than bg-color */
         /* widths, usually accompanied with margin: 0 auto; */
         --max-width-header: 1064px;
         --max-width-content: 1024px;
         --max-width-footer: 1064px;
         /* border */
-        --rounded-radius: 15px;
+        --border-radius-round: 15px;
         --card-radius: 8px;
+        --border-radius-button-sm-pill: 15px;
+        --border-radius-button-md-pill: 25px;
+        --border-radius-button-lg-pill: 35px;
+        --border-radius-button-sm-round: 6px;
+        --border-radius-button-md-round: 8px;
+        --border-radius-button-lg-round: 10px;
         /* responsive design widths (based on tailwind) */
         --sm: 640px;
         --md: 768px;
@@ -148,4 +158,3 @@ const { title, description } = Astro.props
         box-sizing: border-box;
     }
 </style>
-@components-react/Header/Header

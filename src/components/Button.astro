@@ -2,19 +2,28 @@
 // For any onclick items, assign an id and in the parent attach a "click" event listener.
 interface Props {
     id?: string
-    variant: 'primary' | 'secondary' | 'tertiary'
-    size?: 'sm' | 'md' | 'lg' // TODO: add the button sizings CSS
+    variant:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'secondary-dark'
+        | 'tertiary-dark'
+    shape?: 'pill' | 'round' | 'square' // TODO: make required
+    size?: 'sm' | 'md' | 'lg' // TODO: add the button sizings CSS, make required
     href?: string
     class?: string
 }
 
-const { id: idName, variant, href, class: className } = Astro.props
+const { id: idName, variant, href, shape, size, class: className } = Astro.props
 const id = idName ?? ''
 ---
 
 <!-- replicate the buttons... not ideal -->{
     !href && (
-        <button id={id ?? ''} class={`button ${variant} ${className}`}>
+        <button
+            id={id ?? ''}
+            class={`button ${variant} ${size} ${shape} ${className}`}
+        >
             <slot />
         </button>
     )
@@ -22,7 +31,10 @@ const id = idName ?? ''
 {
     href && (
         <a href={href}>
-            <button id={id ?? ''} class={`button ${variant} ${className}`}>
+            <button
+                id={id ?? ''}
+                class={`button ${variant} ${size} ${shape} ${className}`}
+            >
                 <slot />
             </button>
         </a>
@@ -31,16 +43,41 @@ const id = idName ?? ''
 
 <style>
     .button {
-        height: 30px;
         font-family: inherit;
-        font-size: var(--text-sm);
         border-style: none;
-        -webkit-border-radius: var(--rounded-radius);
-        -moz-border-radius: var(--rounded-radius);
-        border-radius: var(--rounded-radius);
         cursor: pointer;
         padding: 6px 12px;
         transition: all 0.2s ease-in-out;
+    }
+    .sm {
+        height: 30px;
+        font-size: var(--text-sm);
+    }
+    .md {
+        height: 36px;
+        font-size: var(--text-base);
+    }
+    .lg {
+        height: 42px;
+        font-size: var(--text-lg);
+    }
+    .pill.sm {
+        border-radius: var(--border-radius-button-sm-pill);
+    }
+    .pill.md {
+        border-radius: var(--border-radius-button-md-pill);
+    }
+    .pill.lg {
+        border-radius: var(--border-radius-button-lg-pill);
+    }
+    .round.sm {
+        border-radius: var(--border-radius-button-sm-round);
+    }
+    .round.md {
+        border-radius: var(--border-radius-button-md-round);
+    }
+    .round.lg {
+        border-radius: var(--border-radius-button-lg-round);
     }
 
     .primary {
@@ -52,18 +89,32 @@ const id = idName ?? ''
     }
 
     .secondary {
-        background-color: var(--secondary-color);
-        color: var(--text-color-inverted);
+        border: 1px solid var(--primary-color);
+        background-color: var(--bg-color);
+        color: var(--primary-color);
     }
     .secondary:hover {
+        filter: brightness(90%);
+    }
+    .secondary-dark {
+        color: var(--bg-color);
+        background-color: #ffffff40;
+    }
+    .secondary-dark:hover {
         opacity: 0.7;
     }
-
     .tertiary {
         background-color: var(--color-0);
         color: var(--text-color);
     }
     .tertiary:hover {
-        background-color: #d9d9d9;
+        opacity: 0.7;
+    }
+    .tertiary-dark {
+        color: var(--bg-color);
+        background: transparent;
+    }
+    .tertiary-dark:hover {
+        opacity: 0.7;
     }
 </style>
