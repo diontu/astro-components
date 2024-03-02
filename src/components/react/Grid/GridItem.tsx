@@ -2,14 +2,14 @@ import styles from './GridItem.module.css'
 import classnames from 'classnames'
 
 const columnValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const
-type ColumnNumber = (typeof columnValues)[number]
+export type ColumnNumber = (typeof columnValues)[number]
 
 type Props = {
     base: ColumnNumber
-    sm?: number
-    md?: number
-    lg?: number
-    xl?: number
+    sm?: ColumnNumber
+    md?: ColumnNumber
+    lg?: ColumnNumber
+    xl?: ColumnNumber
     children: React.ReactNode
 }
 

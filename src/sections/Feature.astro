@@ -5,7 +5,7 @@ import classnames from 'classnames'
 // components
 import Title from '@components/Title.astro'
 import Grid from '@components-react/Grid/Grid'
-import GridItem from '@components-react/Grid/GridItem'
+import GridItem, { type ColumnNumber } from '@components-react/Grid/GridItem'
 
 // types
 import type { GapNumbers } from '@components-react/Grid/Grid'
@@ -19,33 +19,45 @@ import type { GapNumbers } from '@components-react/Grid/Grid'
  *
  */
 interface Props {
-    feature?: string
-    title: string
-    description: string
-    /**
-     * Secondary feature will not show in `center` alignment.
-     * `right` align has no effect on mobile.
-     */
-    align?: 'left' | 'center' | 'right'
-    /** makes it full width */
-    isFullWidth?: boolean
     /** Invert the text color to a lighter color */
     invertTextColor?: boolean
-    /** The secondary feature does not normally show in mobile */
+
+    /** gap between primary and secondary content */
+    gap?: GapNumbers
+
+    /** The primary feature props */
+    primary: {
+        /** h2 text */
+        feature?: string
+        /** h1 text */
+        title: string
+        /** description */
+        description: string
+        /**
+         * Secondary feature will not show in `center` alignment.
+         * `right` align has no effect on mobile.
+         */
+        align: 'left' | 'center' | 'right'
+        /** amount of columns occupied */
+        col?: ColumnNumber
+    }
+    /** The secondary feature props */
     secondary?: {
         isImage?: boolean
-        gap?: GapNumbers
         hideInMobile?: boolean
     }
 }
 
 const {
-    feature,
-    title,
-    description,
-    align = 'left',
-    isFullWidth = false,
     invertTextColor = false,
+    gap = undefined,
+    primary = {
+        feature: '',
+        title: '',
+        description: '',
+        align: 'left',
+        col: undefined,
+    },
     secondary = {
         isImage: false,
         gap: undefined,
@@ -59,42 +71,54 @@ const sectionClasses = classnames({
 })
 const primaryClasses = classnames({
     'feature-primary': true,
-    [align]: true,
+    [primary.align]: true,
 })
 const secondaryClasses = classnames({
     'feature-secondary': true,
     hideInMobile: secondary.hideInMobile,
-    [`feature-secondary-align-right`]: align === 'right' && secondary.isImage, // if alignment of primary content is on the right
+    [`feature-secondary-align-right`]:
+        primary.align === 'right' && secondary.isImage, // if alignment of primary content is on the right
 })
 
 const showSecondaryOnRight =
-    align === 'left' && Astro.slots.has('feature-secondary') && !isFullWidth
+    primary.align === 'left' &&
+    Astro.slots.has('feature-secondary') &&
+    primary.col !== 12
 const showSecondaryOnLeft =
-    align === 'right' && Astro.slots.has('feature-secondary') && !isFullWidth
+    primary.align === 'right' &&
+    Astro.slots.has('feature-secondary') &&
+    primary.col !== 12
+
+const primaryColumns = primary.col ?? 6
+const secondaryColumns = (12 - primaryColumns) as ColumnNumber
 ---
 
 <section class={sectionClasses}>
-    <Grid gap={secondary.gap}>
+    <Grid gap={gap}>
         {
             showSecondaryOnLeft && (
-                <GridItem sm={12} base={6}>
+                <GridItem sm={12} base={secondaryColumns}>
                     <div class={secondaryClasses}>
                         <slot name="feature-secondary" />
                     </div>
                 </GridItem>
             )
         }
-        <GridItem sm={12} base={isFullWidth ? 12 : 6}>
+        <GridItem sm={12} base={primaryColumns}>
             <div class={primaryClasses}>
-                {feature && <Title variant={2}>{feature}</Title>}
-                <Title variant={1} noPadding>{title}</Title>
-                <div class="feature-description">{description}</div>
+                {
+                    primary.feature && (
+                        <Title variant={2}>{primary.feature}</Title>
+                    )
+                }
+                <Title variant={1} noPadding>{primary.title}</Title>
+                <div class="feature-description">{primary.description}</div>
                 <slot />
             </div>
         </GridItem>
         {
             showSecondaryOnRight && (
-                <GridItem sm={12} base={6}>
+                <GridItem sm={12} base={secondaryColumns}>
                     <div class={secondaryClasses}>
                         <slot name="feature-secondary" />
                     </div>
@@ -146,5 +170,6 @@ const showSecondaryOnLeft =
     }
     .feature-description {
         margin: 20px 0;
+        opacity: var(--opacity-de-emphasize-text);
     }
 </style>
