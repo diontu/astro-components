@@ -26,6 +26,8 @@ interface Props {
     invertTextColor?: boolean
     /** gap between primary and secondary content */
     gap?: GapNumbers
+    /** justify content when not mobile */
+    justify?: 'start' | 'center' | 'end'
     /** The primary feature props */
     primary: {
         /** h2 text */
@@ -56,6 +58,7 @@ const {
     paddingBottom = 'none',
     invertTextColor = false,
     gap = undefined,
+    justify = 'start',
     primary = {
         feature: '',
         title: '',
@@ -78,12 +81,14 @@ const sectionClasses = classnames({
 const primaryClasses = classnames({
     'feature-primary': true,
     [primary.align]: true,
+    [`justify-${justify}`]: justify,
 })
 const secondaryClasses = classnames({
     'feature-secondary': true,
     hideInMobile: secondary.hideInMobile,
     [`feature-secondary-align-right`]:
         primary.align === 'right' && secondary.isImage, // if alignment of primary content is on the right
+    [`justify-${justify}`]: justify,
 })
 
 const showSecondaryOnRight =
@@ -146,14 +151,26 @@ const secondaryColumns = (12 - primaryColumns) as ColumnNumber
     .feature-section {
         margin: 32px 0;
     }
+    .justify-start {
+        justify-content: flex-start;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+    .justify-end {
+        justify-content: flex-end;
+    }
     .feature-primary {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     .feature-secondary {
         position: relative;
         left: 0;
         overflow-x: visible;
+        flex-direction: column;
+        height: 100%;
     }
     .hideInMobile {
         display: none;
