@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import styles from './Grid.module.css'
 
-const gapNumbers = [1, 2, 3]
+const gapNumbers = [1, 2, 3] as const
 export type GapNumbers = (typeof gapNumbers)[number]
 
 type Props = {

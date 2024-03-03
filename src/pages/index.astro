@@ -14,7 +14,7 @@ import GridItem from '@components-react/Grid/GridItem'
 import phoneImage from '../../public/phones.png'
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
-import HeroOne from '@pre-built-sections/hero/HeroOne.astro'
+import HeroTwo from '@pre-built-sections/hero/HeroTwo.astro'
 
 const title = 'Gruut'
 const description = ''
@@ -24,10 +24,16 @@ const description = ''
     <!-- first section -->
     <SectionWrappers.Simple
         color="var(--bg-color-accent-light)"
-        paddingTop="base"
+        paddingTop="lg"
+        maxWidth="var(--max-width-content) + 200px"
     >
-        <HeroOne />
+        <HeroTwo />
         <SectionWrappers.Background.Wave slot="bg" />
+    </SectionWrappers.Simple>
+    <SectionWrappers.Simple
+        color="var(--bg-color-accent-light)"
+        paddingTop="xsm"
+    >
         <Sections.Feature
             justify="center"
             gap={3}

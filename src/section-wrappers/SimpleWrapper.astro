@@ -11,6 +11,8 @@ interface Props {
     paddingTop?: Size
     /** padding for the bottom of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
     paddingBottom?: Size
+    /** CSS min width string */
+    maxWidth?: string
     /** additional classes */
     class?: string
 }
@@ -19,6 +21,7 @@ const {
     color,
     paddingTop = 'none',
     paddingBottom = 'none',
+    maxWidth = undefined,
     class: className,
 } = Astro.props
 const externalClasses = className ?? ''
@@ -40,6 +43,7 @@ const simpleWrapperClasses = classnames({
         style={{
             paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
             paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+            maxWidth: `calc(${maxWidth})` ?? 'var(--max-width-content)',
         }}
     >
         <slot />

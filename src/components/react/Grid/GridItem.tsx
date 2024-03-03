@@ -15,6 +15,7 @@ type Props = {
 
 const GridItem = (props: Props) => {
     const gridItemClasses = classnames({
+        gridItem: true,
         [styles[`span-${props.base}`]]: true,
         [styles[`sm-span-${props.sm}`]]: props.sm,
         [styles[`md-span-${props.md}`]]: props.md,
