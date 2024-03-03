@@ -18,7 +18,7 @@ import Sections from '@sections'
         <Button variant="primary" shape="round" size="lg">Learn more</Button>
     </div>
     <div class="videoContainer">
-        <video width="100%" controls>
+        <video class="video" width="100%" controls>
             <source src="/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
@@ -34,5 +34,9 @@ import Sections from '@sections'
     .videoContainer {
         padding: 40px 64px;
         width: 100%;
+    }
+    .video {
+        border-radius: 15px;
+        overflow: hidden;
     }
 </style>
