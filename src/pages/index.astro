@@ -14,7 +14,7 @@ import GridItem from '@components-react/Grid/GridItem'
 import phoneImage from '../../public/phones.png'
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
-import HeroTwo from '@pre-built-sections/hero/HeroTwo.astro'
+import HeroTwo from '@pre-built-section-wrappers/hero/HeroTwo.astro'
 
 const title = 'Gruut'
 const description = ''
@@ -39,7 +39,7 @@ const description = ''
             gap={3}
             secondary={{
                 isImage: true,
-                hideInMobile: true,
+                hideInMobile: false,
             }}
             primary={{
                 align: 'right',

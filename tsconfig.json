@@ -10,6 +10,9 @@
             "@components/*": ["src/components/*"],
             "@pre-built-sections/*": ["src/sections/pre-built/*"],
             "@sections": ["src/sections/index.ts"],
+            "@pre-built-section-wrappers/*": [
+                "src/section-wrappers/pre-built/*"
+            ],
             "@section-wrappers": ["src/section-wrappers/index.ts"],
             "@layouts/*": ["src/layouts/*"],
             "@constants": ["src/constants.ts"],
