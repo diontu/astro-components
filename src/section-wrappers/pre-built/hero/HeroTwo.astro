@@ -1,42 +1,51 @@
 ---
 import Button from '@components/Button.astro'
 import Sections from '@sections'
+import SectionWrappers from '@section-wrappers'
 import { Picture } from 'astro:assets'
 
 // assets
 import phoneHorizontalImage from '@public/phone_horizontal.svg'
 ---
 
-<Sections.Feature
-    gap={3}
-    primary={{
-        align: 'left',
-        title: 'Big Bold Headline For Hero',
-        titleVariant: 'landing-page',
-        description:
-            'A subtitle which in contrast is much smaller and de-emphasized compared to the big bold headline overtop it. It is designed to give you a brief overview of the main benefit.',
-    }}
-    secondary={{
-        hideInMobile: true,
-    }}
+<SectionWrappers.Simple
+    color="var(--bg-color-accent-light)"
+    paddingTop="lg"
+    maxWidth="var(--max-width-content) + 200px"
 >
-    <div class="contentContainer">
-        <div class="buttonGroup">
-            <Button variant="secondary" shape="round" size="lg"
-                >Learn more</Button
-            >
-            <Button variant="primary" shape="round" size="lg">Learn more</Button
-            >
+    <Sections.Feature
+        gap={3}
+        primary={{
+            align: 'left',
+            title: 'Big Bold Headline For Hero',
+            titleVariant: 'landing-page',
+            description:
+                'A subtitle which in contrast is much smaller and de-emphasized compared to the big bold headline overtop it. It is designed to give you a brief overview of the main benefit.',
+        }}
+        secondary={{
+            hideInMobile: true,
+        }}
+    >
+        <div class="contentContainer">
+            <div class="buttonGroup">
+                <Button variant="secondary" shape="round" size="lg"
+                    >Learn more</Button
+                >
+                <Button variant="primary" shape="round" size="lg"
+                    >Learn more</Button
+                >
+            </div>
         </div>
-    </div>
-    <div slot="feature-secondary">
-        <Picture
-            src={phoneHorizontalImage}
-            alt={'phone horizontal'}
-            width={500}
-        />
-    </div>
-</Sections.Feature>
+        <div slot="feature-secondary">
+            <Picture
+                src={phoneHorizontalImage}
+                alt={'phone horizontal'}
+                width={500}
+            />
+        </div>
+    </Sections.Feature>
+    <SectionWrappers.Background.Wave slot="bg" />
+</SectionWrappers.Simple>
 
 <style>
     .buttonGroup {

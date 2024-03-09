@@ -1,29 +1,35 @@
 ---
 import Button from '@components/Button.astro'
 import Sections from '@sections'
+import SectionWrappers from '@section-wrappers'
 ---
 
-<Sections.Feature
-    primary={{
-        col: 12,
-        align: 'center',
-        title: 'Big Bold Headline For Hero',
-        titleVariant: 'landing-page',
-        description:
-            'A subtitle which in contrast is much smaller and de-emphasized compared to the big bold headline overtop it. It is designed to give you a brief overview of the main benefit.',
-    }}
->
-    <div class="buttonGroup">
-        <Button variant="secondary" shape="round" size="lg">Learn more</Button>
-        <Button variant="primary" shape="round" size="lg">Learn more</Button>
-    </div>
-    <div class="videoContainer">
-        <video class="video" width="100%" controls>
-            <source src="/video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</Sections.Feature>
+<SectionWrappers.Simple color="var(--bg-color-accent-light)" paddingTop="lg">
+    <Sections.Feature
+        primary={{
+            col: 12,
+            align: 'center',
+            title: 'Big Bold Headline For Hero',
+            titleVariant: 'landing-page',
+            description:
+                'A subtitle which in contrast is much smaller and de-emphasized compared to the big bold headline overtop it. It is designed to give you a brief overview of the main benefit.',
+        }}
+    >
+        <div class="buttonGroup">
+            <Button variant="secondary" shape="round" size="lg"
+                >Learn more</Button
+            >
+            <Button variant="primary" shape="round" size="lg">Learn more</Button
+            >
+        </div>
+        <div class="videoContainer">
+            <video class="video" width="100%" controls>
+                <source src="/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </Sections.Feature>
+</SectionWrappers.Simple>
 
 <style>
     .buttonGroup {
