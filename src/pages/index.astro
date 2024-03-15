@@ -7,13 +7,12 @@ import Title from '@components/Title.astro'
 import Link from '@components/Link.astro'
 import SectionWrappers from '@section-wrappers'
 import Sections from '@sections'
-import { Image } from 'astro:assets'
 import Grid from '@components-react/Grid/Grid'
 import GridItem from '@components-react/Grid/GridItem'
-// images
-import phoneImage from '../../public/phones.png'
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
+import VideoSection from '@pre-built-sections/VideoSection.astro'
+import FeaturesSection from '@pre-built-sections/FeaturesSection.astro'
 import HeroTwo from '@pre-built-section-wrappers/hero/HeroTwo.astro'
 
 const title = 'Gruut'
@@ -26,114 +25,13 @@ const description = ''
     <SectionWrappers.Simple
         color="var(--bg-color-accent-light)"
         paddingTop="xsm"
-    >
-        <Sections.Feature
-            justify="center"
-            gap={3}
-            secondary={{
-                isImage: true,
-                hideInMobile: false,
-            }}
-            primary={{
-                align: 'right',
-                feature: 'Feature',
-                title: 'What is Lorem Isum?',
-                titleVariant: 'landing-page',
-                description:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
-            }}
-        >
-            <div class="button-group">
-                <Button variant="primary" size="sm" shape="round" href="/">
-                    hello
-                </Button>
-                <Button variant="secondary" size="md" shape="round" href="/">
-                    hello
-                </Button>
-                <Button variant="secondary" size="lg" shape="round" href="/">
-                    hello
-                </Button>
-                <Button variant="tertiary" shape="pill" size="lg" href="/">
-                    hello
-                </Button>
-                <Link href="/" size="sm">hello</Link>
-            </div>
-            <Image
-                slot="feature-secondary"
-                src={phoneImage}
-                alt="phones"
-                height={450}
-            />
-        </Sections.Feature>
-    </SectionWrappers.Simple>
-    <SectionWrappers.Simple
-        color="var(--bg-color-accent-light)"
-        paddingTop="xsm"
         paddingBottom="xsm"
     >
         <ServicesSection />
     </SectionWrappers.Simple>
     <!-- second section -->
-    <SectionWrappers.Simple
-        color="var(--bg-color-accent-dark)"
-        paddingTop="xsm"
-        paddingBottom="xsm"
-    >
-        <Sections.Feature
-            invertTextColor
-            primary={{
-                align: 'center',
-                feature: 'Feature',
-                title: 'What is Lorem Isum?',
-                description:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
-                col: 9,
-            }}
-        >
-            <div class="button-group">
-                <Button
-                    variant="secondary-dark"
-                    shape="square"
-                    size="md"
-                    href="/"
-                >
-                    hello
-                </Button>
-                <Button
-                    variant="tertiary-dark"
-                    shape="square"
-                    size="md"
-                    href="/"
-                >
-                    hello
-                </Button>
-                <Link href="/" size="sm">hello</Link>
-            </div>
-        </Sections.Feature>
-        <Sections.Feature
-            paddingTop="xsm"
-            secondary={{
-                isImage: true,
-            }}
-            primary={{
-                align: 'right',
-                feature: 'Feature',
-                title: 'What is Lorem Isum?',
-                description:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
-            }}
-        >
-            <div slot="feature-secondary">
-                <div>hello</div>
-            </div>
-            <div class="button-group">
-                <Button variant="secondary" shape="round" size="md" href="/">
-                    hello
-                </Button>
-                <Link href="/" size="sm">hello</Link>
-            </div>
-        </Sections.Feature>
-    </SectionWrappers.Simple>
+    <VideoSection />
+    <FeaturesSection />
     <Title variant={1}>hello</Title>
     <Link href="/" size="sm">hello</Link>
     <Grid>

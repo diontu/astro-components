@@ -1,0 +1,85 @@
+---
+import Sections from '@sections'
+import SectionWrappers from '@section-wrappers'
+import { Picture } from 'astro:assets'
+
+// assets
+import featureOneImage from '@public/feature1.svg'
+import featureTwoImage from '@public/feature2.svg'
+import featureThreeImage from '@public/feature3.svg'
+---
+
+<SectionWrappers.Simple
+    color="var(--bg-color-accent-dark)"
+    paddingTop="xsm"
+    paddingBottom="xsm"
+>
+    <SectionWrappers.Background.Blurred slot="bg" />
+    <Sections.Feature
+        invertTextColor
+        paddingTop="xsm"
+        secondary={{
+            isImage: true,
+        }}
+        primary={{
+            align: 'left',
+            feature: 'Feature',
+            title: 'What is Lorem Isum?',
+            description:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+        }}
+    >
+        <div slot="feature-secondary">
+            <Picture
+                src={featureOneImage}
+                alt={'phone horizontal'}
+                width={500}
+            />
+        </div>
+    </Sections.Feature>
+
+    <Sections.Feature
+        invertTextColor
+        paddingTop="xsm"
+        secondary={{
+            isImage: true,
+        }}
+        primary={{
+            align: 'right',
+            feature: 'Team Collaboration',
+            title: 'Clear and Concise Communication',
+            description:
+                'Get clear and concise communication throughout the entire lifecycle of your project. We deliver to make sure that the content we provide to you is up-to-date and accurate. We verify data across multiple platforms with web scrapers to ensure the data to you reference is accurate.',
+        }}
+    >
+        <div slot="feature-secondary">
+            <Picture
+                src={featureTwoImage}
+                alt={'phone horizontal'}
+                width={500}
+            />
+        </div>
+    </Sections.Feature>
+    <Sections.Feature
+        invertTextColor
+        paddingTop="xsm"
+        secondary={{
+            isImage: true,
+        }}
+        primary={{
+            align: 'left',
+            feature: 'Fast Delivery',
+            title: 'Get the fastest devlier to your door',
+            description:
+                "At Amazon, we try to get you the fastest delivery. We optimize for speed so that you don't have to. Check your door in the next 18 minutes and you'll have it. It's not there? call us right back and get your money back guaranteed!",
+        }}
+    >
+        <div slot="feature-secondary">
+            <Picture
+                src={featureThreeImage}
+                alt={'phone horizontal'}
+                width={500}
+            />
+        </div>
+    </Sections.Feature>
+</SectionWrappers.Simple>
