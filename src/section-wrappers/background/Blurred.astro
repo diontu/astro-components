@@ -2,6 +2,7 @@
 
 ---
 
+<div class="linearGradient"></div>
 <div class="blurred left"></div>
 <div class="blurred right"></div>
 <div class="blurred leftDown"></div>
@@ -28,5 +29,22 @@
     .leftDown {
         top: 1250px;
         left: 140px;
+    }
+
+    .linearGradient {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgb(2, 66, 126);
+        background: linear-gradient(
+            180deg,
+            rgba(2, 66, 126, 1) 0%,
+            rgba(2, 66, 126, 1) 50%,
+            rgba(230, 243, 255, 1) 76%,
+            rgba(230, 243, 255, 1) 100%
+        );
     }
 </style>
