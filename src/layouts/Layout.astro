@@ -59,18 +59,19 @@ const { title, description } = Astro.props
 <style is:global>
     :root {
         /* text */
-        --text-line-height: 1.6;
+        --text-line-height: 1.6; /* TO-FILL */
+        --text-letter-spacing: 0.2px; /* TO-FILL */
         --text-color: var(
             --color-9
-        ); /* a little different than --secondary color */
+        ); /* a little different than --secondary color */ /* TO-FILL */
         --text-color-inverted: var(--bg-color);
         --text-xsm: 14px;
         --text-sm: 16px;
         --text-base: 18px;
         --text-lg: 20px;
         /* header size */
-        --font-size-hero: 64px;
-        --font-size-h1: 38px;
+        --font-size-hero: 64px; /* TO-FILL */
+        --font-size-h1: 38px; /* TO-FILL */
         --font-size-h2: 18px;
         --font-size-footer: 15px;
         /* colors */
@@ -78,31 +79,36 @@ const { title, description } = Astro.props
         --color-de-emphasized-2: #9f9f9f;
         --color-de-emphasized-3: #6d6d6d;
         --opacity-de-emphasize-text: 0.7;
-        --color-0: #e6f3ff;
-        --color-1: #b3dafe;
-        --color-2: #81c1fd;
-        --color-3: #4fa8fd;
-        --color-4: #1c90fc;
-        --color-5: #0376e3;
-        --color-6: #025cb0;
-        --color-7: #02427e;
-        --color-8: #01274c;
-        --color-9: #000d19;
+        --color-0: #e6f3ff; /* TO-FILL */
+        --color-1: #b3dafe; /* TO-FILL */
+        --color-2: #81c1fd; /* TO-FILL */
+        --color-3: #4fa8fd; /* TO-FILL */
+        --color-4: #1c90fc; /* TO-FILL */
+        --color-5: #0376e3; /* TO-FILL */
+        --color-6: #025cb0; /* TO-FILL */
+        --color-7: #02427e; /* TO-FILL */
+        --color-8: #01274c; /* TO-FILL */
+        --color-9: #000d19; /* TO-FILL */
         --color-black: black;
 
-        --primary-color: var(--color-5); /* light color */
-        --secondary-color: var(--color-7); /* close to black color */
+        --primary-color: var(--color-5); /* light color */ /* TO-FILL */
+        --secondary-color: var(
+            --color-7
+        ); /* close to black color */ /* TO-FILL */
+        --accent-color: black; /* TO-FILL */
         --bg-color: var(
             --color-0
-        ); /* should not be completely white or completely black */
-        --footer-bg-color: var(--color-8); /* darker than secondary color */
+        ); /* should not be completely white or completely black */ /* TO-FILL */
+        --footer-bg-color: var(
+            --color-8
+        ); /* darker than secondary color */ /* TO-FILL */
         --legal-font-color: var(
             --color-de-emphasized-1
         ); /* darker than bg-color */
         /* widths, usually accompanied with margin: 0 auto; */
-        --max-width-header: 1064px;
-        --max-width-content: 1024px;
-        --max-width-footer: 1064px;
+        --max-width-header: 1064px; /* TO-FILL */
+        --max-width-content: 1024px; /* TO-FILL */
+        --max-width-footer: 1064px; /* TO-FILL */
         /* border */
         --border-radius-round: 15px;
         --card-radius: 8px;
@@ -121,9 +127,11 @@ const { title, description } = Astro.props
         /* mobile content margins */
         --mobile-content-margins: 12px;
         /* bg colors */
-        --bg-color-accent-light: var(--color-0); /* a light secondary color */
-        --bg-color-accent-dark: var(--secondary-color);
-        --bg-color-accent-tertiary: var(--color-white);
+        --bg-color-light: var(
+            --color-0
+        ); /* a light secondary color */ /* TO-FILL */
+        --bg-color-dark: var(--secondary-color); /* TO-FILL */
+        --bg-color-tertiary: var(--color-white); /* TO-FILL */
         /* margins */
         --section-y-margin: 80px;
         /* paddings */
@@ -138,6 +146,8 @@ const { title, description } = Astro.props
         --font-family-classy: Georgia, Palatino, Baskerville;
         --font-family-casual-1: Helvetica Neue, Verdana, sans-serif;
         --font-family-casual-2: Tahoma, Verdana, Arial;
+        --font-family-body: var(--font-family-casual-1); /* TO-FILL */
+        --font-family-header: var(--font-family-casual-1); /* TO-FILL */
         /* 
             hover statuses: 
             - filter: brightness(90%); - make darker
@@ -155,13 +165,16 @@ const { title, description } = Astro.props
         );
     }
     html {
-        font-family: var(--font-family-casual-1);
+        font-family: var(--font-family-body);
         background: var(--bg-color);
         font-size: var(--text-base);
         color: var(--text-color);
         /* good letter spacing for Helvetica Neue */
-        letter-spacing: 0.2px;
+        letter-spacing: var(--text-letter-spacing);
         line-height: var(--text-line-height);
+    }
+    h1 {
+        font-family: (--font-family-header);
     }
     body {
         margin: 0;
