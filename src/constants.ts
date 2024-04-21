@@ -23,40 +23,101 @@ export const headerNav: NavigationType[] = [
 // footer
 export const footerNav: FooterNav = [
     {
-        title: 'Services',
+        title: 'Product',
         links: [
             {
-                label: 'Tax',
+                label: 'Pricing',
                 href: '/',
             },
             {
-                label: 'Other tax',
+                label: 'Start Your Business',
+                href: '/',
+            },
+            {
+                label: 'Manage Your Corporation',
+                href: '/',
+            },
+            {
+                label: 'Blueprint',
+                href: '/',
+            },
+            {
+                label: 'Professional Partners',
+                href: '/',
+            },
+            {
+                label: 'Ownr Shares',
                 href: '/',
             },
         ],
     },
     {
-        title: 'Services',
+        title: 'Resources',
         links: [
             {
-                label: 'Tax',
+                label: 'RBC Offer Details',
                 href: '/',
             },
             {
-                label: 'Other tax',
+                label: 'Perks',
+                href: '/',
+            },
+            {
+                label: 'Business Guides',
+                href: '/',
+            },
+            {
+                label: 'Blog',
                 href: '/',
             },
         ],
     },
     {
-        title: 'Services',
+        title: 'Company',
         links: [
             {
-                label: 'Tax',
+                label: 'About',
                 href: '/',
             },
             {
-                label: 'Other tax',
+                label: 'Partners',
+                href: '/',
+            },
+            {
+                label: 'Affiliates',
+                href: '/',
+            },
+            {
+                label: 'Careers',
+                href: '/',
+            },
+            {
+                label: 'Security',
+                href: '/',
+            },
+            {
+                label: 'Reviews',
+                href: '/',
+            },
+            {
+                label: 'Press',
+                href: '/',
+            },
+        ],
+    },
+    {
+        title: 'Support',
+        links: [
+            {
+                label: 'Live Chat',
+                href: '/',
+            },
+            {
+                label: 'Email Us',
+                href: '/',
+            },
+            {
+                label: 'Help Centre',
                 href: '/',
             },
         ],

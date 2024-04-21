@@ -66,7 +66,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
         display: grid;
         font-size: var(--text-base);
         color: var(--bg-color);
-        gap: 24px 8px;
+        gap: 24px 24px;
     }
     .two-cols {
         grid-template-columns: repeat(2, 1fr);
@@ -76,7 +76,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     }
     @media screen and (min-width: 640px) {
         .four-cols {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
         }
     }
     .footer-column {
@@ -86,6 +86,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     .footer-category {
         font-weight: 500;
         margin-bottom: 12px;
+        margin-bottom: 24px;
     }
     .footer-link {
         text-decoration: none;
@@ -96,7 +97,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
         transition: var(--transition-base);
     }
     .footer-link:hover {
-        opacity: 8;
+        opacity: 1;
     }
     .horizontalLine {
         color: var(--bg-color);
@@ -106,7 +107,7 @@ const colClass = numOfColumns === 2 ? 'two-cols' : 'four-cols'
     .legal {
         display: flex;
         justify-content: space-between;
-        font-size: var(--font-size-footer);
+        font-size: 12px;
         color: var(--legal-font-color);
     }
     .legal-links {
