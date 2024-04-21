@@ -11,9 +11,9 @@ interface Props {
     /** background color must be a valid CSS string. e.g. var(--variable) */
     color?: string
     /** padding for the top of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
-    paddingTop?: Size
+    paddingTop?: Size | number
     /** padding for the bottom of the section wrapper. Must be a valid CSS string. e.g. var(--variable) */
-    paddingBottom?: Size
+    paddingBottom?: Size | number
     /** CSS min width string */
     maxWidth?: string
     /** additional classes */
@@ -33,6 +33,9 @@ const simpleWrapperClasses = classnames({
     simple: 'true',
     [externalClasses]: externalClasses,
 })
+
+const paddingTopIsNumber = typeof paddingTop === 'number'
+const paddingBottomIsNumber = typeof paddingBottom === 'number'
 ---
 
 <div
@@ -44,8 +47,12 @@ const simpleWrapperClasses = classnames({
     <div
         class="content"
         style={{
-            paddingTop: `var(--section-wrapper-padding-${paddingTop})`,
-            paddingBottom: `var(--section-wrapper-padding-${paddingBottom})`,
+            paddingTop: !paddingTopIsNumber
+                ? `var(--section-wrapper-padding-${paddingTop})`
+                : `${paddingTop}px`,
+            paddingBottom: !paddingBottomIsNumber
+                ? `var(--section-wrapper-padding-${paddingBottom})`
+                : `${paddingBottom}px`,
             maxWidth: `calc(${maxWidth})` ?? 'var(--max-width-content)',
         }}
     >
