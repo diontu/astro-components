@@ -1,0 +1,24 @@
+---
+import SectionWrappers from '@section-wrappers'
+
+import { Picture } from 'astro:assets'
+import credibilityOne from '@public/youtube-logo.png'
+import credibilityTwo from '@public/nytimes-logo.png'
+---
+
+<SectionWrappers.Simple color="var(--color-1)">
+    <div class="container">
+        <Picture src={credibilityOne} alt="youtube" height="70" />
+        <Picture src={credibilityTwo} alt="nytimes" height="70" />
+    </div>
+</SectionWrappers.Simple>
+
+<style>
+    .container {
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        filter: grayscale(1);
+    }
+</style>

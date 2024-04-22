@@ -1,0 +1,20 @@
+---
+import { Picture } from 'astro:assets'
+import heroPic from '@public/another-drawing.svg'
+---
+
+<div class="pic">
+    <Picture src={heroPic} alt="pic" />
+</div>
+
+<style>
+    .pic {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+    }
+</style>

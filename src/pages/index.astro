@@ -1,19 +1,14 @@
 ---
 // components
 import Layout from '@layouts/Layout.astro'
-import Card from '@components/Card.astro'
-import Button from '@components/Button.astro'
-import Title from '@components/Title.astro'
-import Link from '@components/Link.astro'
 import SectionWrappers from '@section-wrappers'
-import Sections from '@sections'
-import Grid from '@components-react/Grid/Grid'
-import GridItem from '@components-react/Grid/GridItem'
 // pre-built sections
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
 import VideoSection from '@pre-built-sections/VideoSection.astro'
 import FeaturesSection from '@pre-built-sections/FeaturesSection.astro'
 import HeroTwo from '@pre-built-section-wrappers/hero/HeroTwo.astro'
+import CredibilitySection from '@pre-built-sections/CredibilitySection.astro'
+import CallToActionSection from '@pre-built-sections/CallToActionSection.astro'
 
 const title = 'Gruut'
 const description = ''
@@ -22,31 +17,14 @@ const description = ''
 <Layout title={title} description={description}>
     <!-- first section -->
     <HeroTwo />
-    <SectionWrappers.Simple
-        color="var(--bg-color-light)"
-        paddingTop="xsm"
-        paddingBottom="xsm"
-    >
+    <CredibilitySection />
+    <SectionWrappers.Simple color="var(--bg-color-light)" paddingBottom="xsm">
         <ServicesSection />
     </SectionWrappers.Simple>
     <!-- second section -->
     <VideoSection />
     <FeaturesSection />
-    <Title variant={1}>hello</Title>
-    <Link href="/" size="sm">hello</Link>
-    <Grid>
-        <GridItem base={6} sm={12}> hello </GridItem>
-        <GridItem base={6}> hello </GridItem>
-    </Grid>
-    <Card>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-    </Card>
-
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+    <CallToActionSection />
 </Layout>
 
 <style>
