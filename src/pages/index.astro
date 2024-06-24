@@ -6,10 +6,10 @@ import SectionWrappers from '@section-wrappers'
 import ServicesSection from '@pre-built-sections/ServicesSection.astro'
 import VideoSection from '@pre-built-sections/VideoSection.astro'
 import FeaturesSection from '@pre-built-sections/FeaturesSection.astro'
-import HeroTwo from '@pre-built-section-wrappers/hero/HeroTwo.astro'
-import CredibilitySection from '@pre-built-sections/CredibilitySection.astro'
+import HeroTwo from '@pre-built-sections/hero/HeroTwo.astro'
 import CallToActionSection from '@pre-built-sections/CallToActionSection.astro'
 
+// TODO: title and description to fill
 const title = 'Gruut'
 const description = ''
 ---
@@ -17,7 +17,6 @@ const description = ''
 <Layout title={title} description={description}>
     <!-- first section -->
     <HeroTwo />
-    <CredibilitySection />
     <SectionWrappers.Simple color="var(--bg-color-light)" paddingBottom="xsm">
         <ServicesSection />
     </SectionWrappers.Simple>
@@ -28,15 +27,5 @@ const description = ''
 </Layout>
 
 <style>
-    .text-gradient {
-        background-image: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
-    .button-group {
-        display: flex;
-        gap: 18px;
-    }
+    /* styles */
 </style>
