@@ -1,0 +1,37 @@
+---
+import SectionWrappers from '@section-wrappers'
+
+import Sections from '@sections'
+
+import { Picture } from 'astro:assets'
+import featureThreeImage from '@public/feature3.svg'
+---
+
+<SectionWrappers.Simple color="var(--color-1)">
+    <Sections.Feature
+        paddingTop="sm"
+        secondary={{
+            isImage: true,
+            hideInMobile: true,
+        }}
+        primary={{
+            align: 'left',
+            feature: 'Fast Delivery',
+            title: 'Get the fastest devlier to your door',
+            description:
+                "At Amazon, we try to get you the fastest delivery. We optimize for speed so that you don't have to. Check your door in the next 18 minutes and you'll have it. It's not there? call us right back and get your money back guaranteed!",
+        }}
+    >
+        <div slot="feature-secondary">
+            <Picture
+                src={featureThreeImage}
+                alt={'phone horizontal'}
+                width={500}
+            />
+        </div>
+    </Sections.Feature>
+</SectionWrappers.Simple>
+
+<style>
+    /* styles */
+</style>

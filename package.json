@@ -6,6 +6,8 @@
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro check && astro build",
+        "create-page": "node scripts/create-page.js",
+        "create-section": "node scripts/create-section.js",
         "preview": "astro preview",
         "astro": "astro",
         "prettier": "prettier 'src/**/*.astro' --write .",
@@ -29,6 +31,7 @@
         "typescript": "^5.3.3"
     },
     "devDependencies": {
+        "@types/node": "^20.14.8",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
         "prettier": "^3.2.5",
